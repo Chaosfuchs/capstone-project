@@ -3,8 +3,17 @@ import styled from 'styled-components';
 export default function AddCharacterForm() {
   return (
     <StyledContainer>
-      <StyledInputField></StyledInputField>
-      <StyledTextarea></StyledTextarea>
+      <StyledInputField
+        type="text"
+        maxLength={20}
+        placeholder="Name"
+      ></StyledInputField>
+      <StyledTextarea
+        type="text"
+        maxLength={255}
+        placeholder="Enter here your information...
+        Attributes, Skills, Characteristics, Items, Character-Story, etc."
+      ></StyledTextarea>
       <StyledButtonContainer>
         <button>Save</button>
         <button>Reset Form</button>
@@ -16,28 +25,43 @@ export default function AddCharacterForm() {
 const StyledContainer = styled.div`
   display: grid;
   gap: 5px;
-  margin: 20px;
-  padding: 10px;
+  margin: 10px;
+
+  div {
+    margin: 10px;
+  }
 `;
 
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  gap: 10px;
+  gap: 30px;
   margin: 10px;
   padding: 5px;
 
   button {
-    width: 50%;
+    width: 40%;
     height: 40px;
     border-radius: 10px;
+    font-size: 20px;
+    box-shadow: 5px 5px 5px lightgrey;
+
+    &:hover {
+      background-color: lightgrey;
+    }
   }
 `;
 
 const StyledInputField = styled.input`
-  width: 40%;
+  width: 50%;
   margin: 10px;
   height: 30px;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: 3px solid blue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightgrey;
 `;
 
 const StyledTextarea = styled.textarea`
@@ -45,4 +69,10 @@ const StyledTextarea = styled.textarea`
   max-width: 100vw;
   margin: 10px;
   height: 200px;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: 3px solid blue;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightgrey;
 `;
