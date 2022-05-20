@@ -1,3 +1,5 @@
+import { Title } from './header';
+
 export default function AddCharacterForm() {
   return (
     <>
