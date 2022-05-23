@@ -20,7 +20,7 @@ const StyledButtonContainer = styled.div`
     ${({ theme }) => `background-color: ${theme.colors.lightgreen};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.grey};
-    border: ${theme.borders.darkBorder};`}
+    `}
     width: 140px;
     height: 40px;
     border-radius: 10px;

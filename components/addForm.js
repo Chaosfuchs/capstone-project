@@ -27,7 +27,7 @@ export default function AddForm() {
 
 const StyledFormContainer = styled.form`
   display: grid;
-  gap: 5px;
+  gap: 20px;
   margin: 10px;
   padding: 10px;
 `;
@@ -35,19 +35,19 @@ const StyledFormContainer = styled.form`
 const StyledInputField = styled.input`
   ${({ theme }) => `background-color:  ${theme.colors.pastellgreen};
   font-size: ${theme.fonts.fontSizeNormal};
-  border: ${theme.borders.darkBorder};
   box-shadow: ${theme.boxShadow.grey};`}
   width: 50%;
-  height: 30px;
+  height: 40px;
+  padding: 5px;
   border-radius: 10px;
 `;
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => `background-color: ${theme.colors.pastellgreen};
   font-size: ${theme.fonts.fontSizeNormal};
-  border: ${theme.borders.darkBorder};
   box-shadow: ${theme.boxShadow.grey};`}
   resize: none;
   width: unset;
+  padding: 5px;
   border-radius: 10px;
 `;
