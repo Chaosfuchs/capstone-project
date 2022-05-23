@@ -1,4 +1,4 @@
-import { Title } from '../components/header';
+import { Title } from '../components/Header';
 
 export default function Home() {
   return (

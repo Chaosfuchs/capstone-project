@@ -1,4 +1,4 @@
-import { Title } from '../components/header';
+import { Title } from '../components/Header';
 import ShowCharacter from '../components/ShowCharacter';
 
 export default function Characters() {
