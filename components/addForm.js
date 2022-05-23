@@ -1,9 +1,21 @@
 import styled from 'styled-components';
 import Buttons from './Buttons';
+import useStore from '../hooks/useStore';
+import { nanoid } from 'nanoid';
 
 export default function AddForm() {
+  const addCharacter = useStore(state => state.addCharacter);
+
+  function submitForm(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append('id', nanoid());
+    const formValues = Object.fromEntries(formData);
+    addCharacter(formValues);
+  }
+
   return (
-    <StyledFormContainer>
+    <StyledFormContainer onSubmit={submitForm}>
       <StyledInputField
         required
         type="text"

@@ -1,9 +1,11 @@
 import { Title } from '../components/header';
+import ShowCharacter from '../components/ShowCharacter';
 
 export default function Characters() {
   return (
     <>
-      <Title>Hello</Title>
+      <Title>My Characters</Title>
+      <ShowCharacter />
     </>
   );
 }
