@@ -1,82 +1,53 @@
 import styled from 'styled-components';
+import Buttons from './Buttons';
 
-export default function AddCharacterForm() {
+export default function AddForm() {
   return (
-    <StyledContainer>
+    <StyledFormContainer>
       <StyledInputField
+        required
         type="text"
+        name="nameInput"
         maxLength={20}
         placeholder="Name"
-      ></StyledInputField>
+      />
       <StyledTextarea
+        required
         type="text"
+        name="informationInput"
         maxLength={255}
+        rows={10}
         placeholder="Enter here your information...
         Attributes, Skills, Characteristics, Items, Character-Story, etc."
-      ></StyledTextarea>
-      <StyledButtonContainer>
-        <button>Save</button>
-        <button>Reset Form</button>
-      </StyledButtonContainer>
-    </StyledContainer>
+      />
+      <Buttons />
+    </StyledFormContainer>
   );
 }
 
-const StyledContainer = styled.div`
+const StyledFormContainer = styled.form`
   display: grid;
   gap: 5px;
   margin: 10px;
-
-  div {
-    margin: 10px;
-  }
-`;
-
-const StyledButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  gap: 30px;
-  margin: 10px;
-  padding: 5px;
-
-  button {
-    background-color: #038c8c;
-    width: 40%;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
-    box-shadow: 5px 5px 5px lightgrey;
-
-    &:hover {
-      background-color: #252140;
-      color: white;
-    }
-  }
+  padding: 10px;
 `;
 
 const StyledInputField = styled.input`
-  background-color: #04d99d;
+  ${({ theme }) => `background-color:  ${theme.colors.pastellgreen};
+  font-size: ${theme.fonts.fontSizeNormal};
+  border: ${theme.borders.darkBorder};
+  box-shadow: ${theme.boxShadow.grey};`}
   width: 50%;
-  margin: 10px;
   height: 30px;
-  font-size: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border: 3px solid #03a678;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px lightgrey;
 `;
 
 const StyledTextarea = styled.textarea`
-  background-color: #04d99d;
+  ${({ theme }) => `background-color: ${theme.colors.pastellgreen};
+  font-size: ${theme.fonts.fontSizeNormal};
+  border: ${theme.borders.darkBorder};
+  box-shadow: ${theme.boxShadow.grey};`}
   resize: none;
-  max-width: 100vw;
-  margin: 10px;
-  height: 200px;
-  font-size: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border: 3px solid #03a678;
+  width: unset;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px lightgrey;
 `;
