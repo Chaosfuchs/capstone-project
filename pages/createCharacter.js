@@ -1,5 +1,5 @@
-import { Title } from '../components/header';
-import AddForm from '../components/addForm';
+import { Title } from '../components/Header';
+import AddForm from '../components/AddForm';
 import ShowCharacter from '../components/ShowCharacter';
 
 export default function AddCharacter() {
