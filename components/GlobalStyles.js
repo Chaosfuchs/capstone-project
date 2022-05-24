@@ -11,11 +11,11 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
   colors: {
-    dark: '#201026',
-    darkgreen: '#2C594C',
-    green: '#02734A',
-    lightgreen: '#038C3E',
-    pastellgreen: '#77D9A1',
+    primary: '#201026',
+    secondary: '#2C594C',
+    third: '#02734A',
+    fourth: '#038C3E',
+    fivth: '#77D9A1',
   },
   boxShadow: {
     grey: '5px 5px 5px lightgrey',

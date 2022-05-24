@@ -4,7 +4,7 @@ export default function Buttons() {
   return (
     <StyledButtonContainer>
       <button type="submit">Save</button>
-      <button type="button">Reset Form</button>
+      <button type="reset">Reset Form</button>
     </StyledButtonContainer>
   );
 }
@@ -17,7 +17,7 @@ const StyledButtonContainer = styled.div`
   padding: 5px;
 
   button {
-    ${({ theme }) => `background-color: ${theme.colors.lightgreen};
+    ${({ theme }) => `background-color: ${theme.colors.fourth};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.grey};
     `}
