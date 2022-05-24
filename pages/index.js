@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Title>Welcome to RPG 4-you</Title>
-      <Link passHref href="/createCharacter">
+      <Link passHref href="/create-character">
         <a>Go to create your Character</a>
       </Link>
     </>

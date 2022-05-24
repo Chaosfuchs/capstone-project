@@ -8,6 +8,7 @@ export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
+  const showToast = useStore(state => state.showToast);
 
   function submitForm(event) {
     event.preventDefault();
@@ -17,6 +18,8 @@ export default function AddForm() {
     addCharacter(formValues);
     setInputName('');
     setInputInformation('');
+    showToast(1, true);
+    setTimeout(() => showToast(1, false), 3000);
   }
 
   function handleReset(event) {

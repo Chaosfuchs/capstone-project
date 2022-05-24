@@ -7,7 +7,7 @@ export default function Characters() {
     <>
       <Title>My Characters</Title>
       <ShowCharacter />
-      <Link passHref href="/createCharacter">
+      <Link passHref href="/create-character">
         <a>Back to Create Character</a>
       </Link>
     </>

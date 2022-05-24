@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from '../components/GlobalStyles';
+import Toast from '../components/toasts';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -7,6 +8,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
+        <Toast />
       </ThemeProvider>
     </>
   );

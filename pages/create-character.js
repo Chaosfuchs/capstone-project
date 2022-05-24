@@ -8,7 +8,7 @@ export default function AddCharacter() {
       <Title>Create Character</Title>
       <AddForm />
       <Link passHref href="/characters">
-        <a>Show Characters</a>
+        <a>My Characters</a>
       </Link>
     </>
   );
