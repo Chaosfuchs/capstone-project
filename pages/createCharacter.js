@@ -9,7 +9,7 @@ export default function AddCharacter() {
       <Title>Create Character</Title>
       <AddForm />
       <Link passHref href="/characters">
-        <button as="a">Show Characters</button>
+        <a>Show Characters</a>
       </Link>
     </>
   );
