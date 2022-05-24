@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 export default function AddForm() {
-  const [inputValue1, setInputValue1] = useState('');
-  const [inputValue2, setInputValue2] = useState('');
+  const [inputName, setInputName] = useState('');
+  const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
 
   function submitForm(event) {
@@ -15,14 +15,14 @@ export default function AddForm() {
     formData.append('id', nanoid());
     const formValues = Object.fromEntries(formData);
     addCharacter(formValues);
-    setInputValue1('');
-    setInputValue2('');
+    setInputName('');
+    setInputInformation('');
   }
 
   function handleReset(event) {
     event.preventDefault();
-    setInputValue1('');
-    setInputValue2('');
+    setInputName('');
+    setInputInformation('');
   }
 
   return (
@@ -34,25 +34,25 @@ export default function AddForm() {
       <StyledInputField
         required
         type="text"
-        value={inputValue1}
+        value={inputName}
         name="name"
         maxLength={20}
         placeholder="Name"
         onChange={event => {
-          setInputValue1(event.target.value);
+          setInputName(event.target.value);
         }}
       />
       <StyledTextarea
         required
         type="text"
-        value={inputValue2}
+        value={inputInformation}
         name="information"
         maxLength={255}
         rows={10}
         placeholder="Enter here your information...
         Attributes, Skills, Characteristics, Items, Character-Story, etc."
         onChange={event => {
-          setInputValue2(event.target.value);
+          setInputInformation(event.target.value);
         }}
       />
       <Buttons />
@@ -68,7 +68,7 @@ const StyledFormContainer = styled.form`
 `;
 
 const StyledInputField = styled.input`
-  ${({ theme }) => `background-color:  ${theme.colors.fivth};
+  ${({ theme }) => `background-color:  ${theme.colors.fifth};
   font-size: ${theme.fonts.fontSizeNormal};
   box-shadow: ${theme.boxShadow.grey};`}
   width: 50%;
@@ -78,7 +78,7 @@ const StyledInputField = styled.input`
 `;
 
 const StyledTextarea = styled.textarea`
-  ${({ theme }) => `background-color: ${theme.colors.fivth};
+  ${({ theme }) => `background-color: ${theme.colors.fifth};
   font-size: ${theme.fonts.fontSizeNormal};
   box-shadow: ${theme.boxShadow.grey};`}
   resize: none;

@@ -15,7 +15,7 @@ export const theme = {
     secondary: '#2C594C',
     third: '#02734A',
     fourth: '#038C3E',
-    fivth: '#77D9A1',
+    fifth: '#77D9A1',
   },
   boxShadow: {
     grey: '5px 5px 5px lightgrey',

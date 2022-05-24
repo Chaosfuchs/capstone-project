@@ -19,7 +19,7 @@ export default function ShowCharacter() {
 }
 
 const StyledCard = styled.div`
-  ${({ theme }) => `background-color:  ${theme.colors.fivth};
+  ${({ theme }) => `background-color:  ${theme.colors.fifth};
   box-shadow: ${theme.boxShadow.grey};`}
   display: flex;
   max-width: 350px;
