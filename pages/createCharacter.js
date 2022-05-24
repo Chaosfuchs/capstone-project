@@ -1,6 +1,5 @@
 import { Title } from '../components/Header';
 import AddForm from '../components/AddForm';
-import ShowCharacter from '../components/ShowCharacter';
 import Link from 'next/link';
 
 export default function AddCharacter() {

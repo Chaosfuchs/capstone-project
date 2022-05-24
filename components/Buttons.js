@@ -17,17 +17,18 @@ const StyledButtonContainer = styled.div`
   padding: 5px;
 
   button {
-    ${({ theme }) => `background-color: ${theme.colors.fourth};
+    ${({ theme }) => `
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.grey};
+    box-shadow: ${theme.boxShadow.shadow};
     `}
+    background-image: url(/wood.png);
     width: 140px;
     height: 40px;
     border-radius: 10px;
+    color: white;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.dark};
-      color: white;
+      color: ${({ theme }) => theme.colors.fourth};
     }
   }
 `;

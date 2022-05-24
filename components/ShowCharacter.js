@@ -20,10 +20,9 @@ export default function ShowCharacter() {
 
 const StyledCard = styled.div`
   ${({ theme }) => `background-color:  ${theme.colors.fifth};
-  box-shadow: ${theme.boxShadow.grey};`}
+  box-shadow: ${theme.boxShadow.shadow};`}
   display: flex;
   max-width: 350px;
-  border: 2px solid black;
   white-space: pre-line;
   word-break: break-word;
   margin: 20px;

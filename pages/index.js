@@ -1,9 +1,13 @@
 import { Title } from '../components/Header';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      <Title>Hello</Title>
+      <Title>Welcome to RPG 4-you</Title>
+      <Link passHref href="/createCharacter">
+        <a>Go to create your Character</a>
+      </Link>
     </>
   );
 }

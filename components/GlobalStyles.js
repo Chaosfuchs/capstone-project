@@ -7,6 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  body {
+    
+  }
+
+  a {
+    
+  }
 `;
 
 export const theme = {
@@ -18,7 +26,7 @@ export const theme = {
     fifth: '#77D9A1',
   },
   boxShadow: {
-    grey: '5px 5px 5px lightgrey',
+    shadow: '5px 5px 5px #2C594C',
   },
   fonts: {
     fontSizeNormal: '20px',
