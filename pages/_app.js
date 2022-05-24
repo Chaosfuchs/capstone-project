@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from '../components/GlobalStyles';
-import Toast from '../components/toasts';
+import Toast from '../components/Toasts';
 
 function MyApp({ Component, pageProps }) {
   return (
