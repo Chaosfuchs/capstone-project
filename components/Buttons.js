@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export default function Buttons() {
   return (
@@ -17,9 +17,9 @@ const StyledButtonContainer = styled.div`
   padding: 5px;
 
   button {
-    ${({ theme }) => `
-    font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadow};
+    ${({ theme }) => css`
+      font-size: ${theme.fonts.fontSizeNormal};
+      box-shadow: ${theme.boxShadow.shadow};
     `}
     background-image: url(/wood.png);
     width: 140px;

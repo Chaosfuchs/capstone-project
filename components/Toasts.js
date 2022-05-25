@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import useStore from '../hooks/useStore';
 
 const Toast = props => {
@@ -7,31 +7,33 @@ const Toast = props => {
 
   return (
     <>
-      <StyledNotificationContainer>
+      <NotificationContainer>
         {toasts
           .filter(toast => toast.shown)
-          .map((toast, i) => (
-            <div key={i}>
+          .map(toast => (
+            <div key={toast.id}>
               <p>{toast.description}</p>
             </div>
           ))}
-      </StyledNotificationContainer>
+      </NotificationContainer>
     </>
   );
 };
 
 export default Toast;
 
-const StyledNotificationContainer = styled.div`
-  font-size: 14px;
-  box-sizing: border-box;
-  position: fixed;
+const NotificationContainer = styled.div`
+  font-size: 15px;
   color: black;
 
   div {
-    ${({ theme }) => `background-color:  ${theme.colors.fifth}`};
+    ${({ theme }) =>
+      css`
+        background-color: ${theme.colors.fifth};
+      `};
     margin: 50px;
     text-align: center;
+    padding: 20px;
     border: 2px solid black;
     border-radius: 10px;
   }

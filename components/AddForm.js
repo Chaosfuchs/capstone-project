@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Buttons from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
@@ -8,7 +8,7 @@ export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
-  const showToast = useStore(state => state.showToast);
+  const toggleToast = useStore(state => state.toggleToast);
 
   function submitForm(event) {
     event.preventDefault();
@@ -18,8 +18,8 @@ export default function AddForm() {
     addCharacter(formValues);
     setInputName('');
     setInputInformation('');
-    showToast(1, true);
-    setTimeout(() => showToast(1, false), 3000);
+    toggleToast(1, true);
+    setTimeout(() => toggleToast(1, false), 3000);
   }
 
   function handleReset(event) {
@@ -50,10 +50,10 @@ export default function AddForm() {
         type="text"
         value={inputInformation}
         name="information"
-        maxLength={255}
+        maxLength={3000}
         rows={10}
         placeholder="Enter here your information...
-        Attributes, Skills, Characteristics, Items, Character-Story, etc."
+        Attributes, Skills, Characteristics, Items, Character-Story, more..."
         onChange={event => {
           setInputInformation(event.target.value);
         }}
@@ -71,9 +71,11 @@ const StyledFormContainer = styled.form`
 `;
 
 const StyledInputField = styled.input`
-  ${({ theme }) => `background-color:  ${theme.colors.fifth};
-  font-size: ${theme.fonts.fontSizeNormal};
-  box-shadow: ${theme.boxShadow.shadow};`}
+  ${({ theme }) => css`
+    background-color: ${theme.colors.fifth};
+    font-size: ${theme.fonts.fontSizeNormal};
+    box-shadow: ${theme.boxShadow.shadow};
+  `}
   width: 50%;
   height: 40px;
   padding: 5px;
@@ -81,9 +83,11 @@ const StyledInputField = styled.input`
 `;
 
 const StyledTextarea = styled.textarea`
-  ${({ theme }) => `background-color: ${theme.colors.fifth};
-  font-size: ${theme.fonts.fontSizeNormal};
-  box-shadow: ${theme.boxShadow.shadow};`}
+  ${({ theme }) => css`
+    background-color: ${theme.colors.fifth};
+    font-size: ${theme.fonts.fontSizeNormal};
+    box-shadow: ${theme.boxShadow.shadow};
+  `}
   resize: none;
   width: unset;
   padding: 5px;

@@ -6,10 +6,10 @@ export default function Characters() {
   return (
     <>
       <Title>My Characters</Title>
-      <ShowCharacter />
       <Link passHref href="/create-character">
         <a>Back to Create Character</a>
       </Link>
+      <ShowCharacter />
     </>
   );
 }

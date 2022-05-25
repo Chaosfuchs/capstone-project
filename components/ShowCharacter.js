@@ -1,5 +1,5 @@
 import useStore from '../hooks/useStore';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
@@ -19,8 +19,10 @@ export default function ShowCharacter() {
 }
 
 const StyledCard = styled.div`
-  ${({ theme }) => `background-color:  ${theme.colors.fifth};
-  box-shadow: ${theme.boxShadow.shadow};`}
+  ${({ theme }) => css`
+    background-color: ${theme.colors.fifth};
+    box-shadow: ${theme.boxShadow.shadow};
+  `}
   display: flex;
   max-width: 350px;
   white-space: pre-line;

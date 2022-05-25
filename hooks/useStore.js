@@ -17,18 +17,11 @@ const useStore = create(set => {
     addCharacter: newCharacter => {
       set(state => {
         return {
-          characters: [...state.characters, newCharacter],
+          characters: [newCharacter, ...state.characters],
         };
       });
     },
-    addToast: newToast => {
-      set(state => {
-        return {
-          toasts: [...state.toasts, newToast],
-        };
-      });
-    },
-    showToast: (toastId, visible) => {
+    toggleToast: (toastId, visible) => {
       set(state => {
         return {
           toasts: state.toasts.map(toast =>
