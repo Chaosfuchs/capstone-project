@@ -12,14 +12,14 @@ export function ButtonsForm() {
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  gap: 30px;
+  gap: 10px;
   margin: 5px;
   padding: 5px;
 
   button {
     ${({ theme }) => css`
-      font-size: ${theme.fonts.fontSizeNormal};
-      box-shadow: ${theme.boxShadow.shadowLight};
+      font-size: ${theme.fonts.fontSizeButton};
+      box-shadow: ${theme.boxShadow.shadowHeavy};
       background-color: ${theme.colors.button};
     `}
     width: 140px;

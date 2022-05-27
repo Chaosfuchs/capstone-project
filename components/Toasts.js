@@ -35,7 +35,7 @@ const NotificationContainer = styled.div`
       `};
     margin: 5px;
     text-align: center;
-    padding: 5px;
+    padding: 2px;
     width: 200px;
     border: 2px solid black;
     border-radius: 10px;

@@ -7,7 +7,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-image: url(/background.jpeg);
+    background-image: url(/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 50px 0 0 0;
     box-sizing: border-box;
@@ -25,10 +28,11 @@ export const theme = {
     cardfield: '#77D9A1',
   },
   boxShadow: {
-    shadowHeavy: '5px 5px 5px #2C594C',
+    shadowHeavy: '5px 5px 10px black',
     shadowNeon: '5px 5px 10px #39ff14',
   },
   fonts: {
+    fontSizeButton: '15px',
     fontSizeNormal: '20px',
     fontSizeBig: '40px',
   },

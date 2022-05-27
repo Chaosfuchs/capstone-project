@@ -52,8 +52,7 @@ export default function AddForm() {
         name="information"
         maxLength={3000}
         rows={10}
-        placeholder="Enter here your information...
-        Attributes, Skills, Characteristics, Items, Character-Story, more..."
+        placeholder="Write here some informations about your Character..."
         onChange={event => {
           setInputInformation(event.target.value);
         }}
@@ -66,7 +65,7 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 30px 10px 10px 10px;
+  margin: 30px 10px 0 10px;
   padding: 5px;
 `;
 

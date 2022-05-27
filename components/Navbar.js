@@ -6,13 +6,13 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <Link passHref href="/">
-          <StyledButtonNavbar as="a">Home</StyledButtonNavbar>
+          <StyledButtonNavbar type="radio">Home</StyledButtonNavbar>
         </Link>
         <Link passHref href="/create-character">
-          <StyledButtonNavbar as="a">Create</StyledButtonNavbar>
+          <StyledButtonNavbar type="radio">Create</StyledButtonNavbar>
         </Link>
         <Link passHref href="/characters">
-          <StyledButtonNavbar as="a">Characters</StyledButtonNavbar>
+          <StyledButtonNavbar type="radio">Characters</StyledButtonNavbar>
         </Link>
       </StyledNavbar>
     </>
@@ -20,6 +20,9 @@ export default function Navbar() {
 }
 
 const StyledNavbar = styled.nav`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.background};
+  `}
   display: flex;
   position: fixed;
   justify-content: space-around;
@@ -27,15 +30,16 @@ const StyledNavbar = styled.nav`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #290363;
   z-index: 0;
   height: 70px;
 `;
 
 const StyledButtonNavbar = styled.button`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeButton};
+  `}
   background-image: url(/wood.png);
   color: white;
-  font-size: 20px;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
@@ -44,4 +48,8 @@ const StyledButtonNavbar = styled.button`
   border-radius: 10px;
   border: 1px solid black;
   width: 130px;
+
+  &:active {
+    color: ${({ theme }) => theme.colors.button};
+  }
 `;
