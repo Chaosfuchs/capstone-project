@@ -13,15 +13,17 @@ export const theme = {
   colors: {
     primary: '#201026',
     secondary: '#2C594C',
-    third: '#02734A',
-    fourth: '#038C3E',
-    fifth: '#77D9A1',
+    button: '#02734A',
+    background: '#038C3E',
+    cardfield: '#77D9A1',
   },
   boxShadow: {
-    shadow: '5px 5px 5px #2C594C',
+    shadowHeavy: '5px 5px 5px #2C594C',
+    shadowLight: '3px 3px 3px grey',
   },
   fonts: {
     fontSizeNormal: '20px',
+    fontSizeBig: '40px',
   },
   borders: {
     purpleBorder: '3px solid #4C428C',

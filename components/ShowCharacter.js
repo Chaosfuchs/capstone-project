@@ -20,8 +20,8 @@ export default function ShowCharacter() {
 
 const StyledCard = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.fifth};
-    box-shadow: ${theme.boxShadow.shadow};
+    background-color: ${theme.colors.cardfield};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   display: flex;
   max-width: 350px;

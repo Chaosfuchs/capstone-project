@@ -66,15 +66,15 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 10px;
-  padding: 10px;
+  margin: 30px 10px 10px 10px;
+  padding: 5px;
 `;
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.fifth};
+    background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadow};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   width: 50%;
   height: 40px;
@@ -84,12 +84,11 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.fifth};
+    background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadow};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   resize: none;
-  width: unset;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
 `;

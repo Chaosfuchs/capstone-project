@@ -29,7 +29,7 @@ const NotificationContainer = styled.div`
   div {
     ${({ theme }) =>
       css`
-        background-color: ${theme.colors.fifth};
+        background-color: ${theme.colors.background};
       `};
     margin: 50px;
     text-align: center;

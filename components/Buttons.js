@@ -19,16 +19,12 @@ const StyledButtonContainer = styled.div`
   button {
     ${({ theme }) => css`
       font-size: ${theme.fonts.fontSizeNormal};
-      box-shadow: ${theme.boxShadow.shadow};
+      box-shadow: ${theme.boxShadow.shadowLight};
     `}
     background-image: url(/wood.png);
     width: 140px;
     height: 40px;
     border-radius: 10px;
     color: white;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.fourth};
-    }
   }
 `;
