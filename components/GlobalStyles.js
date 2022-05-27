@@ -1,11 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  
   * {
-    font-family: 'Open Sans', sans-serif;;
+  font-family: 'Open Sans', sans-serif;
+  }
+  
+  body {
+    background-image: url(/background.jpeg);
     margin: 0;
-    padding: 0;
+    padding: 50px 0 0 0;
     box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
   }
 `;
 
@@ -19,7 +26,7 @@ export const theme = {
   },
   boxShadow: {
     shadowHeavy: '5px 5px 5px #2C594C',
-    shadowLight: '3px 3px 3px grey',
+    shadowNeon: '5px 5px 10px #39ff14',
   },
   fonts: {
     fontSizeNormal: '20px',
@@ -28,5 +35,6 @@ export const theme = {
   borders: {
     purpleBorder: '3px solid #4C428C',
     darkBorder: '3px solid #201026',
+    neonBorder: '3px solid #39ff14',
   },
 };

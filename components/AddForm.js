@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Buttons from './Buttons';
+import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
@@ -58,7 +58,7 @@ export default function AddForm() {
           setInputInformation(event.target.value);
         }}
       />
-      <Buttons />
+      <ButtonsForm />
     </StyledFormContainer>
   );
 }
@@ -74,10 +74,11 @@ const StyledInputField = styled.input`
   ${({ theme }) => css`
     background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowHeavy};
+    box-shadow: ${theme.boxShadow.shadowNeon};
+    border: ${theme.borders.neonBorder};
   `}
   width: 50%;
-  height: 40px;
+  height: 30px;
   padding: 5px;
   border-radius: 10px;
 `;
@@ -86,7 +87,8 @@ const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
     background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowHeavy};
+    box-shadow: ${theme.boxShadow.shadowNeon};
+    border: ${theme.borders.neonBorder};
   `}
   resize: none;
   padding: 10px;

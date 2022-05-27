@@ -21,17 +21,20 @@ export default function ShowCharacter() {
 const StyledCard = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.cardfield};
-    box-shadow: ${theme.boxShadow.shadowHeavy};
+    box-shadow: ${theme.boxShadow.shadowNeon};
+    border: ${theme.borders.neonBorder};
   `}
   display: flex;
   max-width: 350px;
   white-space: pre-line;
   word-break: break-word;
   margin: 20px;
-  padding: 10px;
+  padding: 0;
   border-radius: 10px;
 
   ul {
+    padding: 10px;
+    margin: 5px;
     list-style: none;
   }
 `;
