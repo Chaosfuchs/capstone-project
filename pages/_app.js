@@ -1,29 +1,17 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle, theme } from '../components/GlobalStyles';
+import Toast from '../components/Toasts';
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider session={session}>
-      <GlobalStyle></GlobalStyle>
+    <>
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
+        <Toast />
       </ThemeProvider>
-    </SessionProvider>
+    </>
   );
 }
 
 export default MyApp;
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-};
