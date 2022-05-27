@@ -33,7 +33,6 @@ const NotificationContainer = styled.div`
       css`
         background-color: ${theme.colors.cardfield};
       `};
-    position: absolute;
     margin: 10px;
     padding: 10px;
     text-align: center;

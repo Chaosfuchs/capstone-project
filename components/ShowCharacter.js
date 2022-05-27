@@ -28,7 +28,7 @@ const StyledCard = styled.div`
   max-width: 350px;
   white-space: pre-line;
   word-break: break-word;
-  margin: 0px 10px 50px;
+  margin: 10px 10px 30px;
   padding: 0;
   border-radius: 10px;
 
