@@ -39,7 +39,7 @@ export default function AddForm() {
         type="text"
         value={inputName}
         name="name"
-        maxLength={20}
+        maxLength={30}
         placeholder="Name"
         onChange={event => {
           setInputName(event.target.value);
