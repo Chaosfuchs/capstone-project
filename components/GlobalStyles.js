@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin: 0;
-    padding: 50px 0 0 0;
+    margin: 70px 5px;
+    padding: 0;
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 4rem 1fr 4rem;

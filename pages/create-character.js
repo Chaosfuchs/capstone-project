@@ -7,7 +7,6 @@ export default function AddCharacter() {
     <>
       <Title>Create Character</Title>
       <AddForm />
-
       <Navbar />
     </>
   );

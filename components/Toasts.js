@@ -31,9 +31,11 @@ const NotificationContainer = styled.div`
   div {
     ${({ theme }) =>
       css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.cardfield};
       `};
-    margin: 5px;
+    position: absolute;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
     padding: 2px;
     width: 200px;
