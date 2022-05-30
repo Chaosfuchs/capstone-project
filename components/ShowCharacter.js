@@ -9,7 +9,8 @@ export default function ShowCharacter() {
       {characters.map(character => (
         <StyledCard key={character.id}>
           <ul>
-            <li>Name: {character.name}</li>
+            <StyledName>{character.name}</StyledName>
+            <br />
             <li>{character.information}</li>
           </ul>
         </StyledCard>
@@ -20,7 +21,7 @@ export default function ShowCharacter() {
 
 const StyledCard = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-image: ${theme.backgroundImage.paper};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
   `}
@@ -37,4 +38,13 @@ const StyledCard = styled.div`
     margin: 5px;
     list-style: none;
   }
+`;
+
+const StyledName = styled.li`
+  ${({ theme }) => css`
+    color: ${theme.colors.background};
+  `};
+  font-size: 20px;
+  text-align: center;
+  font-weight: 800;
 `;

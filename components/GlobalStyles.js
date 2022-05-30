@@ -26,6 +26,7 @@ export const theme = {
     card: '#77D9A1',
   },
   boxShadow: {
+    shadowLight: '5px 5px 10px grey',
     shadowHeavy: '5px 5px 10px black',
     shadowNeon: '5px 5px 10px #39ff14',
   },
@@ -38,5 +39,8 @@ export const theme = {
     purpleBorder: '3px solid #4C428C',
     darkBorder: '3px solid #201026',
     neonBorder: '3px solid #39ff14',
+  },
+  backgroundImage: {
+    paper: 'url(/old-paper.jpeg)',
   },
 };

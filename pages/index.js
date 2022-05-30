@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <>
+    <Main>
       <Title>RPG Sheet-Creator</Title>
       <InfoContainer>
         <h3>Welcome to RPG Sheet-Creator!</h3>
@@ -21,14 +21,21 @@ export default function Home() {
         </Link>
       </HomeContainer>
       <Navbar />
-    </>
+    </Main>
   );
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const InfoContainer = styled.div`
   ${({ theme }) => css`
     box-shadow: ${theme.boxShadow.shadowHeavy};
+    background-image: ${theme.backgroundImage.paper};
   `};
-  background-image: url(/old-paper.jpeg);
   width: 300px;
   margin: 15px;
   padding: 0px 10px;
