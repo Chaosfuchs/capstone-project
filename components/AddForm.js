@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Buttons from './Buttons';
+import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
@@ -52,13 +52,12 @@ export default function AddForm() {
         name="information"
         maxLength={3000}
         rows={10}
-        placeholder="Enter here your information...
-        Attributes, Skills, Characteristics, Items, Character-Story, more..."
+        placeholder="Write here some informations about your Character..."
         onChange={event => {
           setInputInformation(event.target.value);
         }}
       />
-      <Buttons />
+      <ButtonsForm />
     </StyledFormContainer>
   );
 }
@@ -66,7 +65,7 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 30px 10px 10px 10px;
+  margin: 30px 10px 0;
   padding: 5px;
 `;
 
@@ -74,10 +73,11 @@ const StyledInputField = styled.input`
   ${({ theme }) => css`
     background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowHeavy};
+    box-shadow: ${theme.boxShadow.shadowNeon};
+    border: ${theme.borders.neonBorder};
   `}
   width: 50%;
-  height: 40px;
+  height: 30px;
   padding: 5px;
   border-radius: 10px;
 `;
@@ -86,7 +86,8 @@ const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
     background-color: ${theme.colors.cardfield};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowHeavy};
+    box-shadow: ${theme.boxShadow.shadowNeon};
+    border: ${theme.borders.neonBorder};
   `}
   resize: none;
   padding: 10px;

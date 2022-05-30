@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export default function Buttons() {
+export function ButtonsForm() {
   return (
     <StyledButtonContainer>
       <button type="submit">Save</button>
@@ -12,16 +12,16 @@ export default function Buttons() {
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  gap: 30px;
-  margin: 10px;
+  gap: 10px;
+  margin: 5px;
   padding: 5px;
 
   button {
     ${({ theme }) => css`
-      font-size: ${theme.fonts.fontSizeNormal};
-      box-shadow: ${theme.boxShadow.shadowLight};
+      font-size: ${theme.fonts.fontSizeButton};
+      box-shadow: ${theme.boxShadow.shadowHeavy};
+      background-color: ${theme.colors.button};
     `}
-    background-image: url(/wood.png);
     width: 140px;
     height: 40px;
     border-radius: 10px;

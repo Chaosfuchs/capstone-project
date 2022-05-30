@@ -10,7 +10,7 @@ const useStore = create(set => {
         shown: false,
         title: 'Saved',
         description:
-          'Your Character was saved. Check it out under "My Characters"',
+          'Your Character was saved. Check it out under "Characters"',
       },
     ],
 

@@ -23,17 +23,21 @@ const Toast = props => {
 export default Toast;
 
 const NotificationContainer = styled.div`
+  display: flex;
+  justify-content: center;
   font-size: 15px;
   color: black;
 
   div {
     ${({ theme }) =>
       css`
-        background-color: ${theme.colors.background};
+        background-color: ${theme.colors.cardfield};
       `};
-    margin: 50px;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
-    padding: 20px;
+    padding: 2px;
+    width: 200px;
     border: 2px solid black;
     border-radius: 10px;
   }

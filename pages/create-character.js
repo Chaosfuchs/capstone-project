@@ -1,15 +1,13 @@
 import { Title } from '../components/Header';
 import AddForm from '../components/AddForm';
-import Link from 'next/link';
+import Navbar from '../components/Navbar';
 
 export default function AddCharacter() {
   return (
     <>
       <Title>Create Character</Title>
       <AddForm />
-      <Link passHref href="/characters">
-        <a>My Characters</a>
-      </Link>
+      <Navbar />
     </>
   );
 }
