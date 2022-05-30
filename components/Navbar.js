@@ -1,18 +1,29 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
+  const router = useRouter();
+
   return (
     <>
       <StyledNavbar>
         <Link passHref href="/">
-          <StyledButtonNavbar type="radio">Home</StyledButtonNavbar>
+          <StyledButtonNavbar isActive={router.pathname === '/'}>
+            Home
+          </StyledButtonNavbar>
         </Link>
         <Link passHref href="/create-character">
-          <StyledButtonNavbar type="radio">Create</StyledButtonNavbar>
+          <StyledButtonNavbar
+            isActive={router.pathname === '/create-character'}
+          >
+            Create
+          </StyledButtonNavbar>
         </Link>
         <Link passHref href="/characters">
-          <StyledButtonNavbar type="radio">Characters</StyledButtonNavbar>
+          <StyledButtonNavbar isActive={router.pathname === '/characters'}>
+            Characters
+          </StyledButtonNavbar>
         </Link>
       </StyledNavbar>
     </>
@@ -52,4 +63,5 @@ const StyledButtonNavbar = styled.button`
   &:active {
     color: ${({ theme }) => theme.colors.button};
   }
+  color: ${({ isActive }) => (isActive ? '#3AFD18' : 'white')};
 `;
