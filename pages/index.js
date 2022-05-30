@@ -5,11 +5,12 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <>
-      <Title>Welcome to RPG 4-you</Title>
+    <Main>
+      <Title>RPG Sheet-Creator</Title>
       <InfoContainer>
-        <p>This is a Testcard.</p>
-        <p>If you can you read this? You should know here will be more soon.</p>
+        <h3>Welcome to RPG Sheet-Creator!</h3>
+        <p>News:</p>
+        <p>Update will come. You should know here will be more soon.</p>
       </InfoContainer>
       <HomeContainer>
         <Link passHref href="/create-character">
@@ -20,15 +21,24 @@ export default function Home() {
         </Link>
       </HomeContainer>
       <Navbar />
-    </>
+    </Main>
   );
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const InfoContainer = styled.div`
-  background-color: beige;
+  ${({ theme }) => css`
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    background-image: ${theme.backgroundImage.paper};
+  `};
   width: 300px;
-  margin: 20px;
-  padding: 10px;
-  height: 100px;
+  margin: 15px;
+  padding: 0px 10px;
   border-radius: 10px;
   border: 2px solid black;
 `;
@@ -41,8 +51,9 @@ const HomeContainer = styled.div`
 
   button {
     ${({ theme }) => css`
-      background-color: ${theme.colors.cardfield};
+      background-color: ${theme.colors.card};
       font-size: ${theme.fonts.fontSizeNormal};
+      box-shadow: ${theme.boxShadow.shadowHeavy};
     `}
     border-radius: 15px;
     padding: 50px;

@@ -31,7 +31,7 @@ const NotificationContainer = styled.div`
   div {
     ${({ theme }) =>
       css`
-        background-color: ${theme.colors.cardfield};
+        background-color: ${theme.colors.card};
       `};
     margin: 10px;
     padding: 10px;
