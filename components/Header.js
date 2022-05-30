@@ -4,8 +4,8 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     background-color: ${theme.colors.background};
     color: ${theme.colors.primary};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
-  box-shadow: 5px 5px 20px black;
   text-align: center;
   font-size: 30px;
   margin: 0;
