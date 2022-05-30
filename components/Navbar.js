@@ -49,8 +49,10 @@ const StyledButtonNavbar = styled.button`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeButton};
   `}
+  color: ${({ isActive }) => (isActive ? '#2AFE41' : 'white')};
+  box-shadow: ${({ isActive }) =>
+    isActive ? '5px 5px 10px darkgreen' : 'none'};
   background-image: url(/wood.png);
-  color: white;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
@@ -59,9 +61,4 @@ const StyledButtonNavbar = styled.button`
   border-radius: 10px;
   border: 1px solid black;
   width: 130px;
-
-  &:active {
-    color: ${({ theme }) => theme.colors.button};
-  }
-  color: ${({ isActive }) => (isActive ? '#3AFD18' : 'white')};
 `;

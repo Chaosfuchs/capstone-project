@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Title = styled.h1`
-  background-color: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.primary};
+  ${({ theme }) => css`
+    background-color: ${theme.colors.background};
+    color: ${theme.colors.primary};
+  `}
+  box-shadow: 5px 5px 20px black;
   text-align: center;
   font-size: 30px;
   margin: 0;

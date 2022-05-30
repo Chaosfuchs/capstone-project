@@ -20,7 +20,7 @@ export default function ShowCharacter() {
 
 const StyledCard = styled.div`
   ${({ theme }) => css`
-    background-color: ${theme.colors.cardfield};
+    background-color: ${theme.colors.card};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
   `}
