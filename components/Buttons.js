@@ -1,10 +1,22 @@
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
 
 export function ButtonsForm() {
   return (
     <StyledButtonContainer>
       <button type="submit">Save</button>
       <button type="reset">Reset Form</button>
+    </StyledButtonContainer>
+  );
+}
+
+export function ButtonsEdit() {
+  return (
+    <StyledButtonContainer>
+      <button type="submit">Update</button>
+      <Link passHref href="/characters">
+        <button>Cancel</button>
+      </Link>
     </StyledButtonContainer>
   );
 }

@@ -15,6 +15,12 @@ const useStore = create(
             description:
               'Your Character was saved. Check it out under "Characters"',
           },
+          {
+            id: 2,
+            shown: false,
+            title: 'Updated',
+            description: 'Your Character was updated.',
+          },
         ],
 
         addCharacter: newCharacter => {
@@ -31,6 +37,14 @@ const useStore = create(
               characters: state.characters.filter(
                 deleteCharacter => deleteCharacter.id !== id
               ),
+            };
+          });
+        },
+
+        editCharacter: oldCharacter => {
+          set(state => {
+            return {
+              characters: [oldCharacter],
             };
           });
         },

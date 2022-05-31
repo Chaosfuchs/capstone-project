@@ -10,7 +10,7 @@ export default function Home() {
       <InfoContainer>
         <h3>Welcome to RPG Sheet-Creator!</h3>
         <p>Update-News:</p>
-        <p>Now you can keep your Characters and delete it whenever you like.</p>
+        <p>Working on Edit Function of Sheets.</p>
       </InfoContainer>
       <HomeContainer>
         <Link passHref href="/create-character">
