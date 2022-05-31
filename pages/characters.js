@@ -7,6 +7,7 @@ export default function Characters() {
     <>
       <Title>My Characters</Title>
       <ShowCharacter />
+
       <Navbar />
     </>
   );
