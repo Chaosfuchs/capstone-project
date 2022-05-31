@@ -24,6 +24,17 @@ const useStore = create(
             };
           });
         },
+
+        deleteCharacter: id => {
+          set(state => {
+            return {
+              characters: state.characters.filter(
+                deleteCharacter => deleteCharacter.id !== id
+              ),
+            };
+          });
+        },
+
         toggleToast: (toastId, visible) => {
           set(state => {
             return {
