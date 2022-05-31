@@ -58,7 +58,7 @@ const StyledButtonNavbar = styled.button`
   text-decoration: none;
   padding: 15px;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid black;
   width: 130px;
 `;
