@@ -17,6 +17,14 @@ export default function ShowCharacter() {
               <br />
               <li>{character.information}</li>
             </ul>
+            <div>
+              <button>
+                <img src={'/pencil-outline.svg'} width="20px" />
+              </button>
+              <button>
+                <img src={'/trash-can-outline.svg'} width="20px" />
+              </button>
+            </div>
           </StyledCard>
         ))}
     </Main>
@@ -41,7 +49,7 @@ const StyledCard = styled.div`
     border: ${theme.borders.neonBorder};
   `}
   display: flex;
-
+  flex-direction: column;
   max-width: 350px;
   white-space: pre-line;
   word-break: break-word;
@@ -58,6 +66,21 @@ const StyledCard = styled.div`
   @media (min-width: 400px) {
     min-width: 350px;
     height: 100%;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+    button {
+      ${({ theme }) => css`
+        background-color: ${theme.colors.card};
+      `};
+      margin: 5px 30px;
+      padding: 5px;
+      border-radius: 999px;
+    }
   }
 `;
 
