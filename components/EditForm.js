@@ -2,23 +2,20 @@ import styled, { css } from 'styled-components';
 import { ButtonsEdit } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 
-export default function AddForm() {
-  const [inputName, setInputName] = useState('');
-  const [inputInformation, setInputInformation] = useState('');
+export default function AddForm({ characterId }) {
+  const [inputName, setInputName] = useState('inputName');
+  const [inputInformation, setInputInformation] = useState(
+    'character.information'
+  );
+
   const editCharacter = useStore(state => state.editCharacter);
-  const character = useStore(state => state.characters);
   const toggleToast = useStore(state => state.toggleToast);
 
-  function submitForm(event, characters) {
+  function submitForm(event, character) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    formData.append('id', nanoid());
-    const formValues = Object.fromEntries(formData);
-    editCharacter(formValues);
-    setInputName(characters.name);
-    setInputInformation(characters.information);
+    editCharacter(character);
     toggleToast(2, true);
     setTimeout(() => toggleToast(2, false), 3000);
   }
@@ -28,7 +25,7 @@ export default function AddForm() {
       <StyledInputField
         required
         type="text"
-        value={character.name}
+        value={inputName}
         name="name"
         maxLength={30}
         placeholder="Name"
@@ -39,7 +36,7 @@ export default function AddForm() {
       <StyledTextarea
         required
         type="text"
-        value={character.information}
+        value={inputInformation}
         name="information"
         maxLength={3000}
         rows={10}

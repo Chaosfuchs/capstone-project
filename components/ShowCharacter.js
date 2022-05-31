@@ -21,7 +21,7 @@ export default function ShowCharacter() {
               <li>{character.information}</li>
             </ul>
             <div>
-              <Link passHref href="/update-character">
+              <Link passHref href={`/update-character/${character.id}`}>
                 <button>
                   <img src={'/pencil-outline.svg'} width="20px" /> Edit
                 </button>

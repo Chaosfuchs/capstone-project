@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 const useStore = create(
   persist(
-    set => {
+    (set, get) => {
       return {
         characters: [],
 
@@ -44,9 +44,17 @@ const useStore = create(
         editCharacter: oldCharacter => {
           set(state => {
             return {
-              characters: [oldCharacter],
+              characters: state.characters.map(character =>
+                character.id === oldCharacter.id ? oldCharacter : character
+              ),
             };
           });
+        },
+
+        findCharacter: characterId => {
+          return get().characters.find(
+            character => characterId === character.id
+          );
         },
 
         toggleToast: (toastId, visible) => {
