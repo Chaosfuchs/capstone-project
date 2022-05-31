@@ -7,6 +7,8 @@ export default function ShowCharacter() {
 
   const hydrated = useHydration();
 
+  const deleteCharacter = useStore(state => state.deleteCharacter);
+
   return (
     <Main>
       {hydrated &&
@@ -18,10 +20,12 @@ export default function ShowCharacter() {
               <li>{character.information}</li>
             </ul>
             <div>
-              <button>
-                <img src={'/pencil-outline.svg'} width="20px" />
-              </button>
-              <button>
+              <button
+                type="button"
+                onClick={() => {
+                  deleteCharacter(character.id);
+                }}
+              >
                 <img src={'/trash-can-outline.svg'} width="20px" />
               </button>
             </div>
@@ -76,6 +80,7 @@ const StyledCard = styled.div`
     button {
       ${({ theme }) => css`
         background-color: ${theme.colors.card};
+        box-shadow: ${theme.boxShadow.shadowLight};
       `};
       margin: 5px 30px;
       padding: 5px;
