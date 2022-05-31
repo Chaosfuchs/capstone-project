@@ -65,7 +65,7 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 30px 10px 0;
+  margin: 0 10px;
   padding: 5px;
 `;
 
