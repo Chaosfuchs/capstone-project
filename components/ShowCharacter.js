@@ -5,9 +5,7 @@ import useHydration from '../hooks/useHydration';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
-
   const hydrated = useHydration();
-
   const deleteCharacter = useStore(state => state.deleteCharacter);
 
   return (

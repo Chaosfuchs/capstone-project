@@ -4,7 +4,6 @@ import useStore from '../hooks/useStore';
 
 const Toast = props => {
   const toasts = useStore(state => state.toasts);
-  console.log(toasts);
   return (
     <>
       <NotificationContainer>

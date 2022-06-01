@@ -18,10 +18,10 @@ export default function Home() {
       </InfoContainer>
       <HomeContainer>
         <Link passHref href="/create-character">
-          <button type="radio">Create Character</button>
+          <a>Create Character</a>
         </Link>
         <Link passHref href="/characters">
-          <button type="radio">Characters</button>
+          <a>Characters</a>
         </Link>
       </HomeContainer>
       <Navbar />
@@ -53,12 +53,15 @@ const HomeContainer = styled.div`
   margin: 10px;
   gap: 20px;
 
-  button {
+  a {
     ${({ theme }) => css`
       background-color: ${theme.colors.card};
       font-size: ${theme.fonts.fontSizeNormal};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `}
+    color: black;
+    text-align: center;
+    text-decoration: none;
     border-radius: 15px;
     padding: 50px;
   }

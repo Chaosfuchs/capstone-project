@@ -1,6 +1,12 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
+const toastTypes = {
+  ADD: 1,
+  EDIT: 2,
+  DELETE: 3,
+};
+
 const useStore = create(
   persist(
     (set, get) => {
@@ -9,19 +15,19 @@ const useStore = create(
 
         toasts: [
           {
-            id: 1,
+            id: toastTypes.ADD,
             shown: false,
             title: 'Saved',
             description: 'Your Character was saved.',
           },
           {
-            id: 2,
+            id: toastTypes.EDIT,
             shown: false,
             title: 'Updated',
             description: 'Your Character was updated.',
           },
           {
-            id: 3,
+            id: toastTypes.DELETE,
             shown: false,
             title: 'Deleted',
             description: 'Your Character was deleted.',
@@ -30,66 +36,58 @@ const useStore = create(
 
         addCharacter: newCharacter => {
           set(state => {
+            state.toggleToast(toastTypes.ADD);
             return {
               characters: [newCharacter, ...state.characters],
-              toasts: state.toasts.map(toast =>
-                toast.id === 1 ? { ...toast, shown: true } : toast
-              ),
             };
           });
-          setTimeout(() => {
-            set(state => {
-              return {
-                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
-              };
-            });
-          }, 2000);
         },
 
         deleteCharacter: id => {
           set(state => {
+            state.toggleToast(toastTypes.DELETE);
             return {
               characters: state.characters.filter(
                 deleteCharacter => deleteCharacter.id !== id
               ),
-              toasts: state.toasts.map(toast =>
-                toast.id === 3 ? { ...toast, shown: true } : toast
-              ),
             };
           });
-          setTimeout(() => {
-            set(state => {
-              return {
-                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
-              };
-            });
-          }, 2000);
         },
 
-        editCharacter: oldCharacter => {
+        editCharacter: currentCharacter => {
           set(state => {
+            state.toggleToast(toastTypes.EDIT);
             return {
               characters: state.characters.map(character =>
-                character.id === oldCharacter.id ? oldCharacter : character
-              ),
-              toasts: state.toasts.map(toast =>
-                toast.id === 2 ? { ...toast, shown: true } : toast
+                character.id === currentCharacter.id
+                  ? currentCharacter
+                  : character
               ),
             };
           });
-          setTimeout(() => {
-            set(state => {
-              return {
-                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
-              };
-            });
-          }, 2000);
         },
 
         findCharacter: characterId => {
           return get().characters.find(
             character => characterId === character.id
           );
+        },
+
+        toggleToast: toastId => {
+          set(state => {
+            return {
+              toasts: state.toasts.map(toast =>
+                toast.id === toastId ? { ...toast, shown: true } : toast
+              ),
+            };
+          });
+          setTimeout(() => {
+            set(state => {
+              return {
+                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
+              };
+            });
+          }, 2000);
         },
       };
     },

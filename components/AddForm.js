@@ -9,7 +9,6 @@ export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
-  const toggleToast = useStore(state => state.toggleToast);
   const { push } = useRouter();
 
   function submitForm(event) {

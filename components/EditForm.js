@@ -4,7 +4,7 @@ import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function AddForm({ characterId }) {
+export default function EditForm({ characterId }) {
   const findCharacter = useStore(state => state.findCharacter);
   const [inputName, setInputName] = useState(
     findCharacter(characterId)?.name ?? ''
@@ -12,7 +12,6 @@ export default function AddForm({ characterId }) {
   const [inputInformation, setInputInformation] = useState(
     findCharacter(characterId)?.information ?? ''
   );
-
   const { push } = useRouter();
   const editCharacter = useStore(state => state.editCharacter);
 
