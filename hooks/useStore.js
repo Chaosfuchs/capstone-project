@@ -20,6 +20,12 @@ const useStore = create(
             title: 'Updated',
             description: 'Your Character was updated.',
           },
+          {
+            id: 3,
+            shown: false,
+            title: 'Deleted',
+            description: 'Your Character was deleted.',
+          },
         ],
 
         addCharacter: newCharacter => {
@@ -46,8 +52,18 @@ const useStore = create(
               characters: state.characters.filter(
                 deleteCharacter => deleteCharacter.id !== id
               ),
+              toasts: state.toasts.map(toast =>
+                toast.id === 3 ? { ...toast, shown: true } : toast
+              ),
             };
           });
+          setTimeout(() => {
+            set(state => {
+              return {
+                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
+              };
+            });
+          }, 2000);
         },
 
         editCharacter: oldCharacter => {
