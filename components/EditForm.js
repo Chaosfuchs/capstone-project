@@ -2,19 +2,28 @@ import styled, { css } from 'styled-components';
 import { ButtonsEdit } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function AddForm({ characterId }) {
-  const [inputName, setInputName] = useState(characterId);
-  const [inputInformation, setInputInformation] = useState(characterId);
+  const findCharacter = useStore(state => state.findCharacter);
+  const [inputName, setInputName] = useState(
+    findCharacter(characterId)?.name ?? ''
+  );
+  const [inputInformation, setInputInformation] = useState(
+    findCharacter(characterId)?.information ?? ''
+  );
 
+  const { push } = useRouter();
   const editCharacter = useStore(state => state.editCharacter);
-  const toggleToast = useStore(state => state.toggleToast);
 
-  function submitForm(event, character) {
+  function submitForm(event) {
     event.preventDefault();
-    editCharacter(character);
-    toggleToast(2, true);
-    setTimeout(() => toggleToast(2, false), 3000);
+    editCharacter({
+      id: characterId,
+      name: inputName,
+      information: inputInformation,
+    });
+    push('/characters');
   }
 
   return (

@@ -9,8 +9,12 @@ export default function Home() {
       <Title>RPG Sheet-Creator</Title>
       <InfoContainer>
         <h3>Welcome to RPG Sheet-Creator!</h3>
-        <p>Update-News:</p>
-        <p>Working on Edit Function of Sheets.</p>
+        <p>
+          Update-News: <br />
+          You can create a Character and can write whatever you want. You can
+          edit it and also delete it. Have fun to try out! :) The Buttons in the
+          Homepage will be replaced in next time with the special new feature!
+        </p>
       </InfoContainer>
       <HomeContainer>
         <Link passHref href="/create-character">
@@ -46,7 +50,7 @@ const InfoContainer = styled.div`
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px;
+  margin: 10px;
   gap: 20px;
 
   button {

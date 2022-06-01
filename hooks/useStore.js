@@ -12,8 +12,7 @@ const useStore = create(
             id: 1,
             shown: false,
             title: 'Saved',
-            description:
-              'Your Character was saved. Check it out under "Characters"',
+            description: 'Your Character was saved.',
           },
           {
             id: 2,
@@ -27,8 +26,18 @@ const useStore = create(
           set(state => {
             return {
               characters: [newCharacter, ...state.characters],
+              toasts: state.toasts.map(toast =>
+                toast.id === 1 ? { ...toast, shown: true } : toast
+              ),
             };
           });
+          setTimeout(() => {
+            set(state => {
+              return {
+                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
+              };
+            });
+          }, 2000);
         },
 
         deleteCharacter: id => {
@@ -47,8 +56,18 @@ const useStore = create(
               characters: state.characters.map(character =>
                 character.id === oldCharacter.id ? oldCharacter : character
               ),
+              toasts: state.toasts.map(toast =>
+                toast.id === 2 ? { ...toast, shown: true } : toast
+              ),
             };
           });
+          setTimeout(() => {
+            set(state => {
+              return {
+                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
+              };
+            });
+          }, 2000);
         },
 
         findCharacter: characterId => {
@@ -56,20 +75,14 @@ const useStore = create(
             character => characterId === character.id
           );
         },
-
-        toggleToast: (toastId, visible) => {
-          set(state => {
-            return {
-              toasts: state.toasts.map(toast =>
-                toast.id === toastId ? { ...toast, shown: visible } : toast
-              ),
-            };
-          });
-        },
       };
     },
     {
       name: 'rpg-sheet-creator',
+      partialize: state =>
+        Object.fromEntries(
+          Object.entries(state).filter(([key]) => ['characters'].includes(key))
+        ),
     }
   )
 );

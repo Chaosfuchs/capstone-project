@@ -3,12 +3,14 @@ import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { useRouter } from 'next/router';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
   const toggleToast = useStore(state => state.toggleToast);
+  const { push } = useRouter();
 
   function submitForm(event) {
     event.preventDefault();
@@ -18,8 +20,7 @@ export default function AddForm() {
     addCharacter(formValues);
     setInputName('');
     setInputInformation('');
-    toggleToast(1, true);
-    setTimeout(() => toggleToast(1, false), 3000);
+    push('/characters');
   }
 
   function handleReset(event) {
