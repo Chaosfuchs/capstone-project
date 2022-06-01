@@ -4,17 +4,14 @@ import useStore from '../hooks/useStore';
 import { useState } from 'react';
 
 export default function AddForm({ characterId }) {
-  const [inputName, setInputName] = useState('inputName');
-  const [inputInformation, setInputInformation] = useState(
-    'character.information'
-  );
+  const [inputName, setInputName] = useState(characterId);
+  const [inputInformation, setInputInformation] = useState(characterId);
 
   const editCharacter = useStore(state => state.editCharacter);
   const toggleToast = useStore(state => state.toggleToast);
 
   function submitForm(event, character) {
     event.preventDefault();
-    const formData = new FormData(event.target);
     editCharacter(character);
     toggleToast(2, true);
     setTimeout(() => toggleToast(2, false), 3000);
