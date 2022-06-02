@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin: 80px 10px;
+    margin: 70px 10px;
     padding: 0;
     box-sizing: border-box;
   }
@@ -22,8 +22,9 @@ export const theme = {
     primary: '#201026',
     secondary: '#2C594C',
     button: '#02734A',
-    background: '#038C3E',
+    background: 'lightgreen',
     card: '#77D9A1',
+    text: '#038C3E',
   },
   boxShadow: {
     shadowLight: '5px 5px 10px grey',

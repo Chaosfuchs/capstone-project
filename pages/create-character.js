@@ -7,7 +7,10 @@ import Navbar from '../components/Navbar';
 export default function AddCharacter() {
   return (
     <Main>
-      <Title>Create Character</Title>
+      <Title>
+        <img src={'/LogoDragon.svg'} width="35px" />
+        Create Character
+      </Title>
       <AddForm />
       <Toast />
       <Navbar />

@@ -6,7 +6,10 @@ import Toast from '../components/Toasts';
 export default function Characters() {
   return (
     <>
-      <Title>My Characters</Title>
+      <Title>
+        <img src={'/LogoDragon.svg'} width="35px" />
+        My Characters
+      </Title>
       <ShowCharacter />
       <Toast />
       <Navbar />

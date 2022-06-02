@@ -100,7 +100,7 @@ const StyledCard = styled.div`
 
 const StyledName = styled.li`
   ${({ theme }) => css`
-    color: ${theme.colors.background};
+    color: ${theme.colors.text};
   `};
   font-size: 20px;
   text-align: center;

@@ -40,14 +40,14 @@ const StyledNavbar = styled.nav`
   left: 0;
   right: 0;
   z-index: 0;
-  height: 70px;
+  height: 60px;
 `;
 
 const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeButton};
   `}
-  color: ${({ isActive }) => (isActive ? '#2AFE41' : 'white')};
+  color: ${({ isActive }) => (isActive ? '#D25CFF' : 'white')};
   box-shadow: ${({ isActive }) =>
     isActive ? '5px 5px 10px darkgreen' : 'none'};
   background-image: url(/wood.png);

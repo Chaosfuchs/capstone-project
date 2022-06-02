@@ -10,7 +10,10 @@ export default function AddCharacter() {
 
   return (
     <Main>
-      <Title>Update Character</Title>
+      <Title>
+        <img src={'/LogoDragon.svg'} width="35px" />
+        Update Character
+      </Title>
       <EditForm characterId={characterId} />
       <Toast />
     </Main>
