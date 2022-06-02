@@ -1,18 +1,31 @@
 import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
+import { useState } from 'react';
 
 export default function Dices() {
+  const dices = useStore(state => state.dices);
+  const rollDice = useStore(state => state.rollDice);
+  const currentRoll = useStore(state => state.currentRoll);
+
+  const [diceId, setDiceId] = useState(null);
+
   return (
     <StyledDiceContainer>
-      <select>
-        <option>Choose a Dice yout want to roll...</option>
-        <option>Dice 1</option>
-        <option>Dice 2</option>
-        <option>Dice 3</option>
+      <select
+        onChange={event => {
+          setDiceId(event.target.value);
+          rollDice();
+        }}
+      >
+        <option value="">Choose a Dice...</option>
+        {dices.map(dice => (
+          <option key={dice.id} value={dice.id}>
+            {dice.name}
+          </option>
+        ))}
       </select>
-      <span>You rolled a ....</span>
-      <div>20</div>
-      <button>Roll</button>
+      <div>{currentRoll >= 0 ? currentRoll : ''}</div>
+      <button onClick={() => rollDice(diceId)}>Roll</button>
     </StyledDiceContainer>
   );
 }
