@@ -47,7 +47,7 @@ const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeButton};
   `}
-  color: ${({ isActive }) => (isActive ? '#D25CFF' : 'white')};
+  color: ${({ isActive }) => (isActive ? '#03A5C2' : 'white')};
   box-shadow: ${({ isActive }) =>
     isActive ? '5px 5px 10px darkgreen' : 'none'};
   background-image: url(/wood.png);

@@ -1,8 +1,7 @@
 import { Title } from '../components/Header';
 import styled, { css } from 'styled-components';
 import Navbar from '../components/Navbar';
-import Dices from '../components/Dices';
-import Link from 'next/link';
+import Dice from '../components/Dices';
 
 export default function Home() {
   return (
@@ -14,18 +13,14 @@ export default function Home() {
       <HomeContainer>
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
+          <p>Create: create your Character-Sheet.</p>
           <p>
-            Create: create your Character-Sheet.
-            <br />
-            <br />
             Characters: see your created characters where you can edit or delete
             it
-            <br />
-            <br />
-            Here you can roll a dice for your Roleplay-Round.
           </p>
+          <p>Here you can roll a dice for your Roleplay-Round.</p>
         </InfoContainer>
-        <Dices />
+        <Dice />
       </HomeContainer>
       <Navbar />
     </Main>

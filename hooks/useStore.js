@@ -20,9 +20,19 @@ const useStore = create(
             sides: 2,
           },
           {
+            id: 'd4',
+            name: 'D4',
+            sides: 4,
+          },
+          {
             id: 'd6',
             name: 'D6',
             sides: 6,
+          },
+          {
+            id: 'd9',
+            name: 'D9',
+            sides: 9,
           },
           {
             id: 'd12',

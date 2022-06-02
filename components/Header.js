@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Title = styled.h1`
+export const Title = styled.span`
   ${({ theme }) => css`
     background-color: ${theme.colors.background};
     color: ${theme.colors.primary};

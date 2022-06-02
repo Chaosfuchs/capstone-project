@@ -2,7 +2,7 @@ import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
 import { useState } from 'react';
 
-export default function Dices() {
+export default function Dice() {
   const dices = useStore(state => state.dices);
   const rollDice = useStore(state => state.rollDice);
   const currentRoll = useStore(state => state.currentRoll);
