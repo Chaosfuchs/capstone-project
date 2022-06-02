@@ -1,39 +1,32 @@
 import styled, { css } from 'styled-components';
-import { ButtonsForm } from './Buttons';
+import { ButtonsEdit } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
 
-export default function AddForm() {
-  const [inputName, setInputName] = useState('');
-  const [inputInformation, setInputInformation] = useState('');
-  const addCharacter = useStore(state => state.addCharacter);
+export default function EditForm({ characterId }) {
+  const findCharacter = useStore(state => state.findCharacter);
+  const [inputName, setInputName] = useState(
+    findCharacter(characterId)?.name ?? ''
+  );
+  const [inputInformation, setInputInformation] = useState(
+    findCharacter(characterId)?.information ?? ''
+  );
   const { push } = useRouter();
+  const editCharacter = useStore(state => state.editCharacter);
 
   function submitForm(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    formData.append('id', nanoid());
-    const formValues = Object.fromEntries(formData);
-    addCharacter(formValues);
-    setInputName('');
-    setInputInformation('');
+    editCharacter({
+      id: characterId,
+      name: inputName,
+      information: inputInformation,
+    });
     push('/characters');
   }
 
-  function handleReset(event) {
-    event.preventDefault();
-    setInputName('');
-    setInputInformation('');
-  }
-
   return (
-    <StyledFormContainer
-      id="myForm"
-      onSubmit={submitForm}
-      onReset={handleReset}
-    >
+    <StyledFormContainer id="myForm" onSubmit={submitForm}>
       <StyledInputField
         required
         type="text"
@@ -52,12 +45,12 @@ export default function AddForm() {
         name="information"
         maxLength={3000}
         rows={10}
-        placeholder="Write here some informations about your Character..."
+        placeholder="Update your Character..."
         onChange={event => {
           setInputInformation(event.target.value);
         }}
       />
-      <ButtonsForm />
+      <ButtonsEdit />
     </StyledFormContainer>
   );
 }

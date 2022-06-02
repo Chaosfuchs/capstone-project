@@ -1,24 +1,42 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
+const toastTypes = {
+  ADD: 1,
+  EDIT: 2,
+  DELETE: 3,
+};
+
 const useStore = create(
   persist(
-    set => {
+    (set, get) => {
       return {
         characters: [],
 
         toasts: [
           {
-            id: 1,
+            id: toastTypes.ADD,
             shown: false,
             title: 'Saved',
-            description:
-              'Your Character was saved. Check it out under "Characters"',
+            description: 'Your Character was saved.',
+          },
+          {
+            id: toastTypes.EDIT,
+            shown: false,
+            title: 'Updated',
+            description: 'Your Character was updated.',
+          },
+          {
+            id: toastTypes.DELETE,
+            shown: false,
+            title: 'Deleted',
+            description: 'Your Character was deleted.',
           },
         ],
 
         addCharacter: newCharacter => {
           set(state => {
+            state.toggleToast(toastTypes.ADD);
             return {
               characters: [newCharacter, ...state.characters],
             };
@@ -27,6 +45,7 @@ const useStore = create(
 
         deleteCharacter: id => {
           set(state => {
+            state.toggleToast(toastTypes.DELETE);
             return {
               characters: state.characters.filter(
                 deleteCharacter => deleteCharacter.id !== id
@@ -35,19 +54,49 @@ const useStore = create(
           });
         },
 
-        toggleToast: (toastId, visible) => {
+        editCharacter: currentCharacter => {
           set(state => {
+            state.toggleToast(toastTypes.EDIT);
             return {
-              toasts: state.toasts.map(toast =>
-                toast.id === toastId ? { ...toast, shown: visible } : toast
+              characters: state.characters.map(character =>
+                character.id === currentCharacter.id
+                  ? currentCharacter
+                  : character
               ),
             };
           });
+        },
+
+        findCharacter: characterId => {
+          return get().characters.find(
+            character => characterId === character.id
+          );
+        },
+
+        toggleToast: toastId => {
+          set(state => {
+            return {
+              toasts: state.toasts.map(toast =>
+                toast.id === toastId ? { ...toast, shown: true } : toast
+              ),
+            };
+          });
+          setTimeout(() => {
+            set(state => {
+              return {
+                toasts: state.toasts.map(toast => ({ ...toast, shown: false })),
+              };
+            });
+          }, 2000);
         },
       };
     },
     {
       name: 'rpg-sheet-creator',
+      partialize: state =>
+        Object.fromEntries(
+          Object.entries(state).filter(([key]) => ['characters'].includes(key))
+        ),
     }
   )
 );

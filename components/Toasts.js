@@ -4,7 +4,6 @@ import useStore from '../hooks/useStore';
 
 const Toast = props => {
   const toasts = useStore(state => state.toasts);
-
   return (
     <>
       <NotificationContainer>
@@ -25,6 +24,11 @@ export default Toast;
 const NotificationContainer = styled.div`
   display: flex;
   justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   font-size: 15px;
   color: black;
 

@@ -9,21 +9,19 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <Link passHref href="/">
-          <StyledButtonNavbar isActive={router.pathname === '/'}>
+          <StyledLinkNavbar isActive={router.pathname === '/'}>
             Home
-          </StyledButtonNavbar>
+          </StyledLinkNavbar>
         </Link>
         <Link passHref href="/create-character">
-          <StyledButtonNavbar
-            isActive={router.pathname === '/create-character'}
-          >
+          <StyledLinkNavbar isActive={router.pathname === '/create-character'}>
             Create
-          </StyledButtonNavbar>
+          </StyledLinkNavbar>
         </Link>
         <Link passHref href="/characters">
-          <StyledButtonNavbar isActive={router.pathname === '/characters'}>
+          <StyledLinkNavbar isActive={router.pathname === '/characters'}>
             Characters
-          </StyledButtonNavbar>
+          </StyledLinkNavbar>
         </Link>
       </StyledNavbar>
     </>
@@ -45,7 +43,7 @@ const StyledNavbar = styled.nav`
   height: 70px;
 `;
 
-const StyledButtonNavbar = styled.button`
+const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeButton};
   `}
@@ -58,7 +56,7 @@ const StyledButtonNavbar = styled.button`
   text-decoration: none;
   padding: 15px;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid black;
   width: 130px;
 `;

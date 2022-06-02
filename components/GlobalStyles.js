@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin: 70px 10px;
+    margin: 80px 10px;
     padding: 0;
     box-sizing: border-box;
   }

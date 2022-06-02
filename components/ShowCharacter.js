@@ -1,12 +1,11 @@
 import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
 import useHydration from '../hooks/useHydration';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
-
   const hydrated = useHydration();
-
   const deleteCharacter = useStore(state => state.deleteCharacter);
 
   return (
@@ -20,13 +19,18 @@ export default function ShowCharacter() {
               <li>{character.information}</li>
             </ul>
             <div>
+              <Link passHref href={`/update-character/${character.id}`}>
+                <button>
+                  <img src={'/pencil-outline.svg'} width="20px" /> Edit
+                </button>
+              </Link>
               <button
                 type="button"
                 onClick={() => {
                   deleteCharacter(character.id);
                 }}
               >
-                <img src={'/trash-can-outline.svg'} width="20px" />
+                <img src={'/trash-can-outline.svg'} width="20px" /> Delete
               </button>
             </div>
           </StyledCard>
@@ -82,6 +86,11 @@ const StyledCard = styled.div`
         background-color: ${theme.colors.card};
         box-shadow: ${theme.boxShadow.shadowLight};
       `};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 80px;
       margin: 5px 30px;
       padding: 5px;
       border-radius: 999px;
