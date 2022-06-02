@@ -18,13 +18,13 @@ export default function Dices() {
 }
 
 const StyledDiceContainer = styled.div`
-  background-color: #1a9604;
+  background-image: url(/dice-desk-texture.png);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
   margin: 10px;
+  padding: 10px;
   border-radius: 40px;
   border: 2px solid black;
   height: 240px;
@@ -43,8 +43,8 @@ const StyledDiceContainer = styled.div`
     text-align: center;
     margin: 10px;
     padding: 30px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   button {

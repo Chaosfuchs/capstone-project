@@ -15,11 +15,14 @@ export default function Home() {
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
           <p>
-            Update-News: <br />
-            You can create a Character and can write whatever you want. You can
-            edit it and also delete it. Have fun to try out! :) The Buttons in
-            the Homepage will be replaced in next time with the special new
-            feature! There will be a Dice soon!
+            Create: create your Character-Sheet.
+            <br />
+            <br />
+            Characters: see your created characters where you can edit or delete
+            it
+            <br />
+            <br />
+            Here you can roll a dice for your Roleplay-Round.
           </p>
         </InfoContainer>
         <Dices />
@@ -50,7 +53,6 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px;
-  gap: 10px;
   width: 350px;
 
   a {
