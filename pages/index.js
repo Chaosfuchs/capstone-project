@@ -14,6 +14,7 @@ export default function Home() {
           You can create a Character and can write whatever you want. You can
           edit it and also delete it. Have fun to try out! :) The Buttons in the
           Homepage will be replaced in next time with the special new feature!
+          There will be a App Logo soon!
         </p>
       </InfoContainer>
       <HomeContainer>
