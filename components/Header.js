@@ -14,4 +14,13 @@ export const Title = styled.h1`
   right: 0;
   left: 0;
   top: 0;
+
+  img {
+    position: fixed;
+    left: 0;
+    top: 0;
+    mix-blend-mode: normal;
+    margin: 5px;
+    padding: 5px;
+  }
 `;
