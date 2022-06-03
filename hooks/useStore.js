@@ -13,6 +13,49 @@ const useStore = create(
       return {
         characters: [],
 
+        dices: [
+          {
+            id: 'd2',
+            name: 'D2',
+            sides: 2,
+          },
+          {
+            id: 'd4',
+            name: 'D4',
+            sides: 4,
+          },
+          {
+            id: 'd6',
+            name: 'D6',
+            sides: 6,
+          },
+          {
+            id: 'd9',
+            name: 'D9',
+            sides: 9,
+          },
+          {
+            id: 'd10',
+            name: 'D10',
+            sides: 10,
+          },
+          {
+            id: 'd12',
+            name: 'D12',
+            sides: 12,
+          },
+          {
+            id: 'd20',
+            name: 'D20',
+            sides: 20,
+          },
+          {
+            id: 'd100',
+            name: 'D100',
+            sides: 100,
+          },
+        ],
+
         toasts: [
           {
             id: toastTypes.ADD,
@@ -88,6 +131,22 @@ const useStore = create(
               };
             });
           }, 2000);
+        },
+
+        currentRoll: -1,
+
+        rollDice: diceId => {
+          set(state => {
+            const dice = state.dices.find(dice => dice.id === diceId);
+            if (dice) {
+              return {
+                currentRoll: Math.floor(Math.random() * dice.sides) + 1,
+              };
+            }
+            return {
+              currentRoll: -1,
+            };
+          });
         },
       };
     },
