@@ -34,14 +34,14 @@ const StyledDiceContainer = styled.div`
   ${({ theme }) => css`
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `};
-  background-image: url(/dice-desk-texture.png);
+  background-image: url(/wood-table.jpeg);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
   padding: 10px;
   border-radius: 40px;
-  border: 3px solid #6d5001;
+  border: 3px solid #3b2b00;
   height: 240px;
 
   select {
