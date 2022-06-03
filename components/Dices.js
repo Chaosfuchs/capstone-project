@@ -31,6 +31,9 @@ export default function Dice() {
 }
 
 const StyledDiceContainer = styled.div`
+  ${({ theme }) => css`
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+  `};
   background-image: url(/dice-desk-texture.png);
   display: flex;
   flex-direction: column;
@@ -39,7 +42,7 @@ const StyledDiceContainer = styled.div`
   margin: 10px;
   padding: 10px;
   border-radius: 40px;
-  border: 2px solid black;
+  border: 2px solid #6d5001;
   height: 240px;
 
   select {
@@ -69,7 +72,7 @@ const StyledDiceContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    width: 150px;
     margin: 10px 30px;
     padding: 10px;
     border: 2px solid black;
