@@ -52,6 +52,7 @@ const Main = styled.main`
 
 const StyledCard = styled.div`
   ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeSmall};
     background-image: ${theme.backgroundImage.paper};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
@@ -83,6 +84,7 @@ const StyledCard = styled.div`
 
     button {
       ${({ theme }) => css`
+        font-size: ${theme.fonts.fontSizeSmall};
         background-color: ${theme.colors.card};
         box-shadow: ${theme.boxShadow.shadowLight};
       `};
@@ -100,9 +102,9 @@ const StyledCard = styled.div`
 
 const StyledName = styled.li`
   ${({ theme }) => css`
-    color: ${theme.colors.text};
+    color: ${theme.colors.characterName};
+    font-size: ${theme.fonts.fontSizeNormal};
   `};
-  font-size: 20px;
   text-align: center;
   font-weight: 800;
 `;

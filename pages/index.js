@@ -33,19 +33,9 @@ const Main = styled.div`
   align-items: center;
 `;
 
-const InfoContainer = styled.div`
-  ${({ theme }) => css`
-    box-shadow: ${theme.boxShadow.shadowHeavy};
-    background-image: ${theme.backgroundImage.paper};
-  `};
-  margin: 10px;
-  padding: 0px 10px;
-  border-radius: 10px;
-  border: 2px solid black;
-`;
-
 const HomeContainer = styled.div`
   display: flex;
+  gap: 20px;
   flex-direction: column;
   margin: 10px;
   width: 350px;
@@ -56,10 +46,20 @@ const HomeContainer = styled.div`
       font-size: ${theme.fonts.fontSizeNormal};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `}
-    color: black;
     text-align: center;
     text-decoration: none;
     border-radius: 15px;
     padding: 50px;
   }
+`;
+
+const InfoContainer = styled.div`
+  ${({ theme }) => css`
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    background-image: ${theme.backgroundImage.paper};
+  `};
+  margin: 0 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 2px solid black;
 `;

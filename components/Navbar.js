@@ -51,7 +51,6 @@ const StyledLinkNavbar = styled.a`
   box-shadow: ${({ isActive }) =>
     isActive ? '5px 5px 10px darkgreen' : 'none'};
   background-image: url(/wood.png);
-  font-weight: 800;
   text-align: center;
   text-decoration: none;
   padding: 15px;

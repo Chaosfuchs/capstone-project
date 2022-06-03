@@ -24,7 +24,7 @@ export const theme = {
     button: '#02734A',
     background: 'lightgreen',
     card: '#77D9A1',
-    text: '#038C3E',
+    characterName: '#038C3E',
   },
 
   boxShadow: {
@@ -34,7 +34,9 @@ export const theme = {
   },
   fonts: {
     fontSizeButton: '1rem',
-    fontSizeNormal: '20px',
+    fontsSizeSmall: '0.8rem',
+    fontSizeNormal: '1.2rem',
+    fontSizeBig: '2rem',
   },
   borders: {
     purpleBorder: '3px solid #4C428C',
