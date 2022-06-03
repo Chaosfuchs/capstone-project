@@ -26,15 +26,15 @@ export const theme = {
     card: '#77D9A1',
     text: '#038C3E',
   },
+
   boxShadow: {
     shadowLight: '5px 5px 10px grey',
     shadowHeavy: '5px 5px 10px black',
     shadowNeon: '5px 5px 10px #39ff14',
   },
   fonts: {
-    fontSizeButton: '15px',
+    fontSizeButton: '1rem',
     fontSizeNormal: '20px',
-    fontSizeBig: '40px',
   },
   borders: {
     purpleBorder: '3px solid #4C428C',
