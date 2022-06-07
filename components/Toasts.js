@@ -25,22 +25,20 @@ const NotificationContainer = styled.div`
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  font-size: 15px;
-  color: black;
 
   div {
     ${({ theme }) =>
       css`
+        font-size: ${theme.fonts.fontSizeNormal};
         background-color: ${theme.colors.card};
       `};
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
-    padding: 2px;
     width: 200px;
     border: 2px solid black;
     border-radius: 10px;

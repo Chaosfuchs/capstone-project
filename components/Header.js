@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 
 export const Title = styled.span`
   ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeBig};
     background-color: ${theme.colors.background};
     color: ${theme.colors.primary};
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   text-align: center;
-  font-size: 30px;
   margin: 0;
   padding: 10px;
   position: fixed;

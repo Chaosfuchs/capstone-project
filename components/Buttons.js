@@ -35,7 +35,7 @@ const StyledButtonContainer = styled.div`
       background-color: ${theme.colors.button};
     `}
     width: 140px;
-    height: 40px;
+    height: 50px;
     border-radius: 10px;
     color: white;
   }
