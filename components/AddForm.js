@@ -29,6 +29,18 @@ export default function AddForm() {
     setInputInformation('');
   }
 
+  const [image, setImage] = useState(null);
+  const [createObjectURL, setCreateObjectURL] = useState(null);
+
+  const uploadToClient = event => {
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
+
+      setImage(i);
+      setCreateObjectURL(URL.createObjectURL(i));
+    }
+  };
+
   return (
     <StyledFormContainer
       id="myForm"
@@ -46,6 +58,10 @@ export default function AddForm() {
           setInputName(event.target.value);
         }}
       />
+      <StyledImageContainer>
+        <img tpye="file" src={createObjectURL} />
+        <input type="file" name="myImage" onChange={uploadToClient} />
+      </StyledImageContainer>
       <StyledTextarea
         required
         type="text"
@@ -68,6 +84,11 @@ const StyledFormContainer = styled.form`
   gap: 20px;
   margin: 0 10px;
   padding: 5px;
+
+  div {
+    display: flex;
+    gap: 30px;
+  }
 `;
 
 const StyledInputField = styled.input`
@@ -81,6 +102,20 @@ const StyledInputField = styled.input`
   height: 30px;
   padding: 5px;
   border-radius: 10px;
+`;
+
+const StyledImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  img {
+    position: fixed;
+    top: 70px;
+    left: 60%;
+    width: 100px;
+    height: 100px;
+    border-radius: 999px;
+  }
 `;
 
 const StyledTextarea = styled.textarea`
