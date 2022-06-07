@@ -15,6 +15,7 @@ export default function ShowCharacter() {
           <StyledCard key={character.id}>
             <ul>
               <StyledName>{character.name}</StyledName>
+              <li>{character.image}</li>
               <br />
               <li>{character.information}</li>
             </ul>

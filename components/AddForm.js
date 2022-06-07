@@ -32,12 +32,12 @@ export default function AddForm() {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
 
-  const uploadToClient = event => {
+  const uploadImage = event => {
     if (event.target.files && event.target.files[0]) {
-      const i = event.target.files[0];
+      image = event.target.files[0];
 
-      setImage(i);
-      setCreateObjectURL(URL.createObjectURL(i));
+      setImage(image);
+      setCreateObjectURL(URL.createObjectURL(image));
     }
   };
 
@@ -60,7 +60,7 @@ export default function AddForm() {
       />
       <StyledImageContainer>
         <img tpye="file" src={createObjectURL} />
-        <input type="file" name="myImage" onChange={uploadToClient} />
+        <input type="file" name="myImage" onChange={uploadImage} />
       </StyledImageContainer>
       <StyledTextarea
         required
@@ -110,11 +110,10 @@ const StyledImageContainer = styled.div`
 
   img {
     position: fixed;
-    top: 70px;
-    left: 60%;
-    width: 100px;
-    height: 100px;
-    border-radius: 999px;
+    top: 80px;
+    right: 10%;
+    width: 80px;
+    border-radius: 10px;
   }
 `;
 
