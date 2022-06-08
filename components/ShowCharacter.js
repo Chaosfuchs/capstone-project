@@ -6,11 +6,12 @@ import { useState } from 'react';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
+  const [character, setCharacter] = useState(null);
   const hydrated = useHydration();
   const deleteCharacter = useStore(state => state.deleteCharacter);
   const [showDetailedCharacter, setShowDetailedCharacter] = useState(false);
 
-  function DetailedCharacterSheet({ character }) {
+  function DetailedCharacterCard({ character }) {
     function handleClose(e) {
       e.stopPropagation();
       setShowDetailedCharacter(false);
@@ -49,12 +50,14 @@ export default function ShowCharacter() {
 
   return (
     <Main>
+      {showDetailedCharacter && <DetailedCharacterCard character={character} />}
       {hydrated &&
         characters.map(character => (
           <StyledCard
             key={character.id}
             onClick={() => {
               setShowDetailedCharacter(true);
+              setCharacter(character);
             }}
           >
             <ul>
@@ -62,9 +65,6 @@ export default function ShowCharacter() {
               <br />
               <li>{character.type}</li>
             </ul>
-            {showDetailedCharacter && (
-              <DetailedCharacterSheet character={character} />
-            )}
           </StyledCard>
         ))}
     </Main>
@@ -83,10 +83,14 @@ const Main = styled.main`
 `;
 
 const StyledOverlay = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   z-index: 10;
 `;
 
@@ -105,6 +109,8 @@ const StyledCard = styled.div`
   margin: 10px 10px 30px;
   padding: 0;
   border-radius: 10px;
+  overflow-y: auto;
+  max-height: 90vh;
 
   ul {
     padding: 10px;
