@@ -38,6 +38,7 @@ export default function ShowCharacter() {
               type="button"
               onClick={() => {
                 deleteCharacter(character.id);
+                setShowDetailedCharacter(false);
               }}
             >
               <img src={'/trash-can-outline.svg'} width="20px" /> Delete
