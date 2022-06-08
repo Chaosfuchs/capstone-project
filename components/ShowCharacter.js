@@ -10,10 +10,16 @@ export default function ShowCharacter() {
   const deleteCharacter = useStore(state => state.deleteCharacter);
   const [showDetailedCharacter, setShowDetailedCharacter] = useState(false);
 
-  function DetailedCharacterSheet(character) {
+  function DetailedCharacterSheet({ character }) {
+    function handleClose(e) {
+      e.stopPropagation();
+      setShowDetailedCharacter(false);
+    }
+
     return (
       <StyledOverlay>
         <StyledCard key={character.id} onClick={setShowDetailedCharacter}>
+          <button onClick={handleClose}>X</button>
           <ul>
             <StyledName>{character.name}</StyledName>
             <br />
@@ -47,14 +53,18 @@ export default function ShowCharacter() {
         characters.map(character => (
           <StyledCard
             key={character.id}
-            onClick={setShowDetailedCharacter(true)}
+            onClick={() => {
+              setShowDetailedCharacter(true);
+            }}
           >
             <ul>
               <StyledNameMinicard>{character.name}</StyledNameMinicard>
               <br />
               <li>{character.type}</li>
             </ul>
-            {showDetailedCharacter && DetailedCharacterSheet()}
+            {showDetailedCharacter && (
+              <DetailedCharacterSheet character={character} />
+            )}
           </StyledCard>
         ))}
     </Main>
@@ -77,10 +87,6 @@ const StyledOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   z-index: 10;
 `;
 

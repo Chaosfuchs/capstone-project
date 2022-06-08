@@ -9,6 +9,9 @@ export default function EditForm({ characterId }) {
   const [inputName, setInputName] = useState(
     findCharacter(characterId)?.name ?? ''
   );
+  const [inputType, setInputType] = useState(
+    findCharacter(characterId)?.type ?? ''
+  );
   const [inputInformation, setInputInformation] = useState(
     findCharacter(characterId)?.information ?? ''
   );
@@ -20,6 +23,7 @@ export default function EditForm({ characterId }) {
     editCharacter({
       id: characterId,
       name: inputName,
+      type: inputType,
       information: inputInformation,
     });
     push('/characters');
@@ -36,6 +40,17 @@ export default function EditForm({ characterId }) {
         placeholder="Name"
         onChange={event => {
           setInputName(event.target.value);
+        }}
+      />
+      <StyledInputField
+        required
+        type="text"
+        value={inputType}
+        name="type"
+        maxLength={30}
+        placeholder="RPG-Name"
+        onChange={event => {
+          setInputType(event.target.value);
         }}
       />
       <StyledTextarea
