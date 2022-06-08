@@ -20,7 +20,7 @@ export default function ShowCharacter() {
     return (
       <StyledOverlay>
         <StyledCard key={character.id} onClick={setShowDetailedCharacter}>
-          <button onClick={handleClose}>X</button>
+          <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
           <ul>
             <StyledName>{character.name}</StyledName>
             <br />
@@ -162,4 +162,17 @@ const StyledNameMinicard = styled.li`
   `};
   text-align: left;
   font-weight: 800;
+`;
+
+const StyledCloseButton = styled.button`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeSmall};
+    background-color: ${theme.colors.card};
+    box-shadow: ${theme.boxShadow.shadowLight};
+  `};
+
+  width: 30px;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 999px;
 `;
