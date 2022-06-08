@@ -19,7 +19,7 @@ export default function ShowCharacter() {
 
     return (
       <StyledOverlay>
-        <StyledCard key={character.id} onClick={setShowDetailedCharacter}>
+        <StyledCard key={character.id} onClick={setShowDetailedCharacter(true)}>
           <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
           <ul>
             <StyledName>{character.name}</StyledName>
@@ -62,7 +62,7 @@ export default function ShowCharacter() {
             }}
           >
             <ul>
-              <StyledNameMinicard>{character.name}</StyledNameMinicard>
+              <StyledName>{character.name}</StyledName>
               <br />
               <li>{character.type}</li>
             </ul>
@@ -83,18 +83,6 @@ const Main = styled.main`
   }
 `;
 
-const StyledOverlay = styled.div`
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-`;
-
 const StyledCard = styled.div`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeSmall};
@@ -111,7 +99,7 @@ const StyledCard = styled.div`
   padding: 0;
   border-radius: 10px;
   overflow-y: auto;
-  max-height: 90vh;
+  max-height: 95vh;
 
   ul {
     padding: 10px;
@@ -152,17 +140,20 @@ const StyledName = styled.li`
     color: ${theme.colors.characterName};
     font-size: ${theme.fonts.fontSizeNormal};
   `};
-  text-align: center;
+
   font-weight: 800;
 `;
 
-const StyledNameMinicard = styled.li`
-  ${({ theme }) => css`
-    color: ${theme.colors.characterName};
-    font-size: ${theme.fonts.fontSizeNormal};
-  `};
-  text-align: left;
-  font-weight: 800;
+const StyledOverlay = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
 `;
 
 const StyledCloseButton = styled.button`
@@ -171,7 +162,6 @@ const StyledCloseButton = styled.button`
     background-color: ${theme.colors.card};
     box-shadow: ${theme.boxShadow.shadowLight};
   `};
-
   width: 30px;
   margin: 20px;
   padding: 5px;
