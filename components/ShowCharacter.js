@@ -17,6 +17,8 @@ export default function ShowCharacter() {
               <StyledName>{character.name}</StyledName>
               <br />
               <li>{character.information}</li>
+              <br />
+              <li>Rpg-Name: {character.type}</li>
             </ul>
             <div>
               <Link passHref href={`/update-character/${character.id}`}>
