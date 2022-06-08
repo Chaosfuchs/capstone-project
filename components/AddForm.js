@@ -4,6 +4,7 @@ import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
@@ -17,10 +18,19 @@ export default function AddForm() {
     const formData = new FormData(event.target);
     formData.append('id', nanoid());
     const formValues = Object.fromEntries(formData);
-    addCharacter(formValues);
+
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    };
+    console.log(formValues);
+    axios.post('/api/image', formValues, config);
+    /*addCharacter(formValues);
     setInputName('');
     setInputInformation('');
-    push('/characters');
+    push('/characters'); 
+    */
   }
 
   function handleReset(event) {
@@ -59,7 +69,7 @@ export default function AddForm() {
         }}
       />
       <StyledImageContainer>
-        <img tpye="file" src={createObjectURL} />
+        <img type="file" src={createObjectURL} />
         <input type="file" name="myImage" onChange={uploadImage} />
       </StyledImageContainer>
       <StyledTextarea
