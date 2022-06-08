@@ -99,7 +99,7 @@ const StyledCard = styled.div`
   padding: 0;
   border-radius: 10px;
   overflow-y: auto;
-  max-height: 95vh;
+  max-height: 80vh;
 
   ul {
     padding: 10px;
