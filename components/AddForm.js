@@ -1,14 +1,18 @@
 import styled, { css } from 'styled-components';
 import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputInformation, setInputInformation] = useState('');
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
   const addCharacter = useStore(state => state.addCharacter);
 
   const { push } = useRouter();
@@ -18,19 +22,22 @@ export default function AddForm() {
     const formData = new FormData(event.target);
     formData.append('id', nanoid());
     const formValues = Object.fromEntries(formData);
+    try {
+      const response = await axios.post(
+        "/api/upload",
+        { file },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+    }
 
-    const config = {
-      headers: {
-        'content-type': 'multipart/form-data',
-      },
-    };
-    console.log(formValues);
-    axios.post('/api/image', formValues, config);
-    /*addCharacter(formValues);
+    addCharacter(formValues);
     setInputName('');
     setInputInformation('');
-    push('/characters'); 
-    */
+    push('/characters');
   }
 
   function handleReset(event) {
@@ -39,24 +46,58 @@ export default function AddForm() {
     setInputInformation('');
   }
 
-  const [image, setImage] = useState(null);
-  const [createObjectURL, setCreateObjectURL] = useState(null);
-
-  const uploadImage = event => {
-    if (event.target.files && event.target.files[0]) {
-      image = event.target.files[0];
-
-      setImage(image);
-      setCreateObjectURL(URL.createObjectURL(image));
-    }
-  };
-
   return (
     <StyledFormContainer
       id="myForm"
-      onSubmit={submitForm}
+      onSubmit={ async event => {submitForm}}
       onReset={handleReset}
     >
+      <div>
+        {data && (
+          <>
+            <h2>{data.name}</h2>
+            <div style={{ position: 'relative', width: 200 }}>
+              <Image
+                src={data.image.url}
+                height={data.image.height}
+                width={data.image.width}
+              />
+            </div>
+            <p>{data.description}</p>
+            <pre>{JSON.stringify(data, null, 4)}</pre>
+          </>
+        )}
+      </div>
+      {error && <div>{error.message}</div>}
+      <form
+        onSubmit={async event => {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          const { file, ...formValues } = Object.fromEntries(formData);
+          try {
+            const response = await axios.post(
+              '/api/upload',
+              { file },
+              {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+              }
+            );
+            setData({
+              ...formValues,
+              image: {
+                url: response.data.url,
+                height: response.data.height,
+                width: response.data.width,
+              },
+            });
+          } catch (error) {
+            setError(error);
+          }
+        }}
+      ></form>
       <StyledInputField
         required
         type="text"
@@ -69,8 +110,8 @@ export default function AddForm() {
         }}
       />
       <StyledImageContainer>
-        <img type="file" src={createObjectURL} />
-        <input type="file" name="myImage" onChange={uploadImage} />
+        <img type="file" src={data} />
+        <input type="file" name="file" />
       </StyledImageContainer>
       <StyledTextarea
         required
