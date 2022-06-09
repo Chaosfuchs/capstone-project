@@ -33,33 +33,20 @@ const Main = styled.div`
   align-items: center;
 `;
 
-const HomeContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  margin: 10px;
-  width: 350px;
-
-  a {
-    ${({ theme }) => css`
-      background-color: ${theme.colors.card};
-      font-size: ${theme.fonts.fontSizeNormal};
-      box-shadow: ${theme.boxShadow.shadowHeavy};
-    `}
-    text-align: center;
-    text-decoration: none;
-    border-radius: 15px;
-    padding: 50px;
-  }
-`;
-
 const InfoContainer = styled.div`
   ${({ theme }) => css`
     box-shadow: ${theme.boxShadow.shadowHeavy};
     background-image: ${theme.backgroundImage.paper};
   `};
-  margin: 0 10px;
-  padding: 0 10px;
+  margin: 10px;
+  padding: 0px 10px;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 1px solid black;
+`;
+
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 350px;
 `;

@@ -34,9 +34,10 @@ const StyledButtonContainer = styled.div`
       box-shadow: ${theme.boxShadow.shadowHeavy};
       background-color: ${theme.colors.button};
     `}
+    border: 1px solid black;
     width: 140px;
     height: 50px;
     border-radius: 10px;
-    color: white;
+    // color: white;
   }
 `;

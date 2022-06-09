@@ -86,7 +86,7 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
@@ -99,7 +99,7 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};

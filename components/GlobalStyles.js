@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin: 70px 10px;
+    margin: 80px 10px;
     padding: 0;
     box-sizing: border-box;
   }
@@ -21,16 +21,16 @@ export const theme = {
   colors: {
     primary: '#201026',
     secondary: '#2C594C',
-    button: '#02734A',
-    background: 'lightgreen',
-    card: '#77D9A1',
-    characterName: '#038C3E',
+    button: '#2F97C1',
+    background: '#AEFFFF',
+    toast: '#9AFFFB',
+    characterName: '#2F97C1',
   },
 
   boxShadow: {
     shadowLight: '5px 5px 10px grey',
-    shadowHeavy: '5px 5px 10px black',
-    shadowNeon: '5px 5px 10px #39ff14',
+    shadowHeavy: '5px 7px 10px black',
+    shadowNeon: '5px 5px 10px #00FFFF',
   },
   fonts: {
     fontSizeButton: '1rem',
@@ -41,9 +41,11 @@ export const theme = {
   borders: {
     purpleBorder: '3px solid #4C428C',
     darkBorder: '3px solid #201026',
-    neonBorder: '3px solid #39ff14',
+    neonBorder: '3px solid #2AFFFF',
   },
   backgroundImage: {
     paper: 'url(/old-paper.jpeg)',
+    stars: 'url(/background.jpeg)',
+    dice: 'url(/dice-texture2.png)',
   },
 };

@@ -87,8 +87,7 @@ const StyledCard = styled.div`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeSmall};
     background-image: ${theme.backgroundImage.paper};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   display: flex;
   flex-direction: column;
@@ -100,6 +99,7 @@ const StyledCard = styled.div`
   border-radius: 10px;
   overflow-y: auto;
   max-height: 80vh;
+  border: 1px solid black;
 
   ul {
     padding: 10px;
@@ -120,9 +120,10 @@ const StyledCard = styled.div`
     button {
       ${({ theme }) => css`
         font-size: ${theme.fonts.fontSizeSmall};
-        background-color: ${theme.colors.card};
+        background-color: ${theme.colors.button};
         box-shadow: ${theme.boxShadow.shadowLight};
       `};
+      border: 1px solid black;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -159,9 +160,10 @@ const StyledOverlay = styled.div`
 const StyledCloseButton = styled.button`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeSmall};
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.button};
     box-shadow: ${theme.boxShadow.shadowLight};
   `};
+  border: 1px solid black;
   width: 30px;
   margin: 20px;
   padding: 5px;
