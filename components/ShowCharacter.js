@@ -1,65 +1,18 @@
 import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
-import Link from 'next/link';
 import useHydration from '../hooks/useHydration';
-
 import Image from 'next/image';
-
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import DetailedCharacterCard from '../pages/detailed-character/[characterId]';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
   const [character, setCharacter] = useState(null);
   const hydrated = useHydration();
-  const deleteCharacter = useStore(state => state.deleteCharacter);
   const [showDetailedCharacter, setShowDetailedCharacter] = useState(false);
 
-  function DetailedCharacterCard({ character }) {
-    function handleClose(e) {
-      e.stopPropagation();
-      setShowDetailedCharacter(false);
-    }
-
-    return (
-      <StyledOverlay>
-        <StyledCard>
-          <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
-          <ul>
-            <StyledName>{character.name}</StyledName>
-            {character.image && (
-              <li style={{ width: '50px' }}>
-                <Image
-                  src={character.image.url}
-                  height={character.image.height}
-                  width={character.image.width}
-                />
-              </li>
-            )}
-            <br />
-            <li>{character.information}</li>
-            <br />
-            <li>Rpg-Name: {character.type}</li>
-          </ul>
-          <div>
-            <Link passHref href={`/update-character/${character.id}`}>
-              <button>
-                <img src={'/pencil-outline.svg'} width="20px" /> Edit
-              </button>
-            </Link>
-            <button
-              type="button"
-              onClick={() => {
-                deleteCharacter(character.id);
-                setShowDetailedCharacter(false);
-              }}
-            >
-              <img src={'/trash-can-outline.svg'} width="20px" /> Delete
-            </button>
-          </div>
-        </StyledCard>
-      </StyledOverlay>
-    );
-  }
+  const { push } = useRouter();
 
   return (
     <Main>
@@ -71,6 +24,7 @@ export default function ShowCharacter() {
             onClick={() => {
               setShowDetailedCharacter(true);
               setCharacter(character);
+              push(`/detailed-character/${character.id}`);
             }}
           >
             <ul>
@@ -165,29 +119,4 @@ const StyledName = styled.li`
   `};
 
   font-weight: 800;
-`;
-
-const StyledOverlay = styled.div`
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-`;
-
-const StyledCloseButton = styled.button`
-  ${({ theme }) => css`
-    font-size: ${theme.fonts.fontSizeSmall};
-    background-color: ${theme.colors.button};
-    box-shadow: ${theme.boxShadow.shadowLight};
-  `};
-  border: 1px solid black;
-  width: 30px;
-  margin: 20px;
-  padding: 5px;
-  border-radius: 999px;
 `;
