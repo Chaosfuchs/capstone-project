@@ -151,7 +151,7 @@ const useStore = create(
       };
     },
     {
-      name: '_rpg-sheet-creator',
+      name: 'rpg-sheet-creator-v0001',
       partialize: state =>
         Object.fromEntries(
           Object.entries(state).filter(([key]) => ['characters'].includes(key))

@@ -22,26 +22,30 @@ export default function AddForm() {
     const formData = new FormData(event.target);
     formData.append('id', nanoid());
     const { file, ...formValues } = Object.fromEntries(formData);
-    try {
-      const response = await axios.post(
-        '/api/upload',
-        { file },
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-      console.log(response);
 
-      addCharacter({
-        ...formValues,
-        image: {
-          url: response.data.url,
-          height: response.data.height,
-          width: response.data.width,
-        },
-      });
+    try {
+      if (file.name) {
+        const response = await axios.post(
+          '/api/upload',
+          { file },
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
+
+        addCharacter({
+          ...formValues,
+          image: {
+            url: response.data.url,
+            height: response.data.height,
+            width: response.data.width,
+          },
+        });
+      } else {
+        addCharacter(formValues);
+      }
       setInputName('');
       setInputInformation('');
       push('/characters');

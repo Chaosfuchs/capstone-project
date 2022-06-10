@@ -16,14 +16,16 @@ export default function ShowCharacter() {
           <StyledCard key={character.id}>
             <ul>
               <StyledName>{character.name}</StyledName>
-              <li style={{ position: 'relative', width: '50px' }}>
-                <Image
-                  src={character.image.url}
-                  height={character.image.height}
-                  width={character.image.width}
-                />
-              </li>
-              <br />
+              {character.image && (
+                <li style={{ position: 'relative', width: '50px' }}>
+                  <Image
+                    src={character.image.url}
+                    height={character.image.height}
+                    width={character.image.width}
+                  />
+                  <br />
+                </li>
+              )}
               <li>{character.information}</li>
             </ul>
             <div>
