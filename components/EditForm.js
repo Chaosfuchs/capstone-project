@@ -57,13 +57,9 @@ export default function EditForm({ characterId }) {
           setInputType(event.target.value);
         }}
       />
-
       {image && (
-        <div style={{ width: 200 }}>
-          <Image src={image.url} height={image.height} width={image.width} />
-        </div>
+        <Image src={image.url} height={image.height} width={image.width} />
       )}
-
       <StyledTextarea
         required
         type="text"

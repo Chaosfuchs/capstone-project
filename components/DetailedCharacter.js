@@ -25,13 +25,13 @@ export default function DetailedCharacterCard({ characterId }) {
           <ul>
             <StyledName>{character.name}</StyledName>
             {character.image && (
-              <li style={{ width: '50px' }}>
+              <StyledImage>
                 <Image
                   src={character.image.url}
                   height={character.image.height}
                   width={character.image.width}
                 />
-              </li>
+              </StyledImage>
             )}
             <li>{character.information}</li>
             <li>Rpg-Name: {character.type}</li>
@@ -46,7 +46,7 @@ export default function DetailedCharacterCard({ characterId }) {
               type="button"
               onClick={() => {
                 deleteCharacter(character.id);
-                setShowDetailedCharacter(false);
+                push('/characters');
               }}
             >
               <img src={'/trash-can-outline.svg'} width="20px" /> Delete
@@ -80,6 +80,10 @@ const StyledCloseButton = styled.button`
   margin: 20px;
   padding: 5px;
   border-radius: 999px;
+`;
+
+const StyledImage = styled.li`
+  width: 50px;
 `;
 
 const StyledCard = styled.div`
@@ -144,6 +148,5 @@ const StyledName = styled.li`
     color: ${theme.colors.characterName};
     font-size: ${theme.fonts.fontSizeNormal};
   `};
-
   font-weight: 800;
 `;

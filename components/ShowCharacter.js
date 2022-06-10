@@ -31,13 +31,13 @@ export default function ShowCharacter() {
               <StyledName>{character.name}</StyledName>
 
               {character.image && (
-                <li style={{ width: '50px' }}>
+                <StyledImage>
                   <Image
                     src={character.image.url}
                     height={character.image.height}
                     width={character.image.width}
                   />
-                </li>
+                </StyledImage>
               )}
               <br />
               <li>{character.type}</li>
@@ -110,6 +110,10 @@ const StyledCard = styled.div`
       border-radius: 999px;
     }
   }
+`;
+
+const StyledImage = styled.li`
+  width: 50px;
 `;
 
 const StyledName = styled.li`
