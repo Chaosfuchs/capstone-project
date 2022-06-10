@@ -38,11 +38,11 @@ const StyledDiceContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 0px 10px;
   padding: 10px;
   border-radius: 40px;
   border: 3px solid #3b2b00;
-  height: 220px;
+  height: 250px;
 
   select {
     margin: 10px;
