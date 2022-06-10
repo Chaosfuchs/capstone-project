@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
+  const [inputType, setInputType] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -57,6 +58,7 @@ export default function AddForm() {
   function handleReset(event) {
     event.preventDefault();
     setInputName('');
+    setInputType('');
     setInputInformation('');
   }
 
@@ -88,9 +90,23 @@ export default function AddForm() {
           setInputName(event.target.value);
         }}
       />
+
       <StyledImageContainer>
         <input type="file" name="file" />
       </StyledImageContainer>
+
+      <StyledInputField
+        required
+        type="text"
+        value={inputType}
+        name="type"
+        maxLength={30}
+        placeholder="RPG-Name"
+        onChange={event => {
+          setInputType(event.target.value);
+        }}
+      />
+
       <StyledTextarea
         required
         type="text"
@@ -122,7 +138,7 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
@@ -148,7 +164,7 @@ const StyledImageContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};

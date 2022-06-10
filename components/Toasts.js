@@ -34,7 +34,7 @@ const NotificationContainer = styled.div`
     ${({ theme }) =>
       css`
         font-size: ${theme.fonts.fontSizeNormal};
-        background-color: ${theme.colors.card};
+        background-color: ${theme.colors.toast};
       `};
     margin: 10px;
     padding: 5px;

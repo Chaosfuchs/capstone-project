@@ -10,6 +10,9 @@ export default function EditForm({ characterId }) {
   const [inputName, setInputName] = useState(
     findCharacter(characterId)?.name ?? ''
   );
+  const [inputType, setInputType] = useState(
+    findCharacter(characterId)?.type ?? ''
+  );
   const [inputInformation, setInputInformation] = useState(
     findCharacter(characterId)?.information ?? ''
   );
@@ -23,6 +26,7 @@ export default function EditForm({ characterId }) {
     editCharacter({
       id: characterId,
       name: inputName,
+      type: inputType,
       information: inputInformation,
     });
     push('/characters');
@@ -41,11 +45,25 @@ export default function EditForm({ characterId }) {
           setInputName(event.target.value);
         }}
       />
+
       {image && (
         <div style={{ position: 'relative', width: 200 }}>
           <Image src={image.url} height={image.height} width={image.width} />
         </div>
       )}
+
+      <StyledInputField
+        required
+        type="text"
+        value={inputType}
+        name="type"
+        maxLength={30}
+        placeholder="RPG-Name"
+        onChange={event => {
+          setInputType(event.target.value);
+        }}
+      />
+
       <StyledTextarea
         required
         type="text"
@@ -72,7 +90,7 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
@@ -85,7 +103,7 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};

@@ -38,11 +38,11 @@ const StyledDiceContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 0px 10px;
   padding: 10px;
   border-radius: 40px;
   border: 3px solid #3b2b00;
-  height: 240px;
+  height: 250px;
 
   select {
     margin: 10px;
@@ -53,13 +53,14 @@ const StyledDiceContainer = styled.div`
   div {
     ${({ theme }) => css`
       font-size: ${theme.fonts.fontSizeBig};
+      background-image: ${theme.backgroundImage.dice};
     `};
-    background-image: url(/dice-texture.png);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    border-radius: 15px;
     color: white;
     text-align: center;
-    margin: 10px;
-    padding: 30px;
+    margin: 20px;
+    padding: 20px;
     width: 40px;
     height: 40px;
   }
@@ -70,13 +71,13 @@ const StyledDiceContainer = styled.div`
       background-color: ${theme.colors.button};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `};
-    color: white;
+    // color: white;
     display: flex;
     justify-content: center;
-    width: 150px;
+    width: 100px;
     margin: 10px 30px;
     padding: 10px;
     border: 1px solid black;
-    border-radius: 999px;
+    border-radius: 10px;
   }
 `;

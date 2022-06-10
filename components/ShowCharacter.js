@@ -2,20 +2,72 @@ import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import useHydration from '../hooks/useHydration';
+
 import Image from 'next/image';
+
+import { useState } from 'react';
+
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
+  const [character, setCharacter] = useState(null);
   const hydrated = useHydration();
   const deleteCharacter = useStore(state => state.deleteCharacter);
+  const [showDetailedCharacter, setShowDetailedCharacter] = useState(false);
+
+  function DetailedCharacterCard({ character }) {
+    function handleClose(e) {
+      e.stopPropagation();
+      setShowDetailedCharacter(false);
+    }
+
+    return (
+      <StyledOverlay>
+        <StyledCard key={character.id} onClick={setShowDetailedCharacter(true)}>
+          <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
+          <ul>
+            <StyledName>{character.name}</StyledName>
+            <br />
+            <li>{character.information}</li>
+            <br />
+            <li>Rpg-Name: {character.type}</li>
+          </ul>
+          <div>
+            <Link passHref href={`/update-character/${character.id}`}>
+              <button>
+                <img src={'/pencil-outline.svg'} width="20px" /> Edit
+              </button>
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                deleteCharacter(character.id);
+                setShowDetailedCharacter(false);
+              }}
+            >
+              <img src={'/trash-can-outline.svg'} width="20px" /> Delete
+            </button>
+          </div>
+        </StyledCard>
+      </StyledOverlay>
+    );
+  }
 
   return (
     <Main>
+      {showDetailedCharacter && <DetailedCharacterCard character={character} />}
       {hydrated &&
         characters.map(character => (
-          <StyledCard key={character.id}>
+          <StyledCard
+            key={character.id}
+            onClick={() => {
+              setShowDetailedCharacter(true);
+              setCharacter(character);
+            }}
+          >
             <ul>
               <StyledName>{character.name}</StyledName>
+
               {character.image && (
                 <li style={{ position: 'relative', width: '50px' }}>
                   <Image
@@ -27,22 +79,8 @@ export default function ShowCharacter() {
                 </li>
               )}
               <li>{character.information}</li>
+
             </ul>
-            <div>
-              <Link passHref href={`/update-character/${character.id}`}>
-                <button>
-                  <img src={'/pencil-outline.svg'} width="20px" /> Edit
-                </button>
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  deleteCharacter(character.id);
-                }}
-              >
-                <img src={'/trash-can-outline.svg'} width="20px" /> Delete
-              </button>
-            </div>
           </StyledCard>
         ))}
     </Main>
@@ -64,8 +102,7 @@ const StyledCard = styled.div`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeSmall};
     background-image: ${theme.backgroundImage.paper};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
   display: flex;
   flex-direction: column;
@@ -75,6 +112,9 @@ const StyledCard = styled.div`
   margin: 10px 10px 30px;
   padding: 0;
   border-radius: 10px;
+  overflow-y: auto;
+  max-height: 80vh;
+  border: 1px solid black;
 
   ul {
     padding: 10px;
@@ -95,9 +135,10 @@ const StyledCard = styled.div`
     button {
       ${({ theme }) => css`
         font-size: ${theme.fonts.fontSizeSmall};
-        background-color: ${theme.colors.card};
+        background-color: ${theme.colors.button};
         box-shadow: ${theme.boxShadow.shadowLight};
       `};
+      border: 1px solid black;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -115,6 +156,31 @@ const StyledName = styled.li`
     color: ${theme.colors.characterName};
     font-size: ${theme.fonts.fontSizeNormal};
   `};
-  text-align: center;
+
   font-weight: 800;
+`;
+
+const StyledOverlay = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+`;
+
+const StyledCloseButton = styled.button`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeSmall};
+    background-color: ${theme.colors.button};
+    box-shadow: ${theme.boxShadow.shadowLight};
+  `};
+  border: 1px solid black;
+  width: 30px;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 999px;
 `;
