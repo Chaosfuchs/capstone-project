@@ -86,7 +86,7 @@ export default function ShowCharacter() {
                 </li>
               )}
               <br />
-              <li>{character.information}</li>
+              <li>{character.type}</li>
             </ul>
           </StyledCard>
         ))}
