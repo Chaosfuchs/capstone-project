@@ -17,27 +17,37 @@ export default function AddForm() {
 
   const { push } = useRouter();
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append('id', nanoid());
-    const formValues = Object.fromEntries(formData);
+    const { file, ...formValues } = Object.fromEntries(formData);
     try {
       const response = await axios.post(
-        "/api/upload",
+        '/api/upload',
         { file },
         {
           headers: {
-            "Content-Type": "multipart/form-data",
+            'Content-Type': 'multipart/form-data',
           },
         }
-      )
-    }
+      );
+      console.log(response);
 
-    addCharacter(formValues);
-    setInputName('');
-    setInputInformation('');
-    push('/characters');
+      addCharacter({
+        ...formValues,
+        image: {
+          url: response.data.url,
+          height: response.data.height,
+          width: response.data.width,
+        },
+      });
+      setInputName('');
+      setInputInformation('');
+      push('/characters');
+    } catch (error) {
+      setError(error);
+    }
   }
 
   function handleReset(event) {
@@ -49,55 +59,20 @@ export default function AddForm() {
   return (
     <StyledFormContainer
       id="myForm"
-      onSubmit={ async event => {submitForm}}
+      onSubmit={submitForm}
       onReset={handleReset}
     >
       <div>
         {data && (
           <>
             <h2>{data.name}</h2>
-            <div style={{ position: 'relative', width: 200 }}>
-              <Image
-                src={data.image.url}
-                height={data.image.height}
-                width={data.image.width}
-              />
-            </div>
             <p>{data.description}</p>
             <pre>{JSON.stringify(data, null, 4)}</pre>
           </>
         )}
       </div>
       {error && <div>{error.message}</div>}
-      <form
-        onSubmit={async event => {
-          event.preventDefault();
 
-          const formData = new FormData(event.target);
-          const { file, ...formValues } = Object.fromEntries(formData);
-          try {
-            const response = await axios.post(
-              '/api/upload',
-              { file },
-              {
-                headers: {
-                  'Content-Type': 'multipart/form-data',
-                },
-              }
-            );
-            setData({
-              ...formValues,
-              image: {
-                url: response.data.url,
-                height: response.data.height,
-                width: response.data.width,
-              },
-            });
-          } catch (error) {
-            setError(error);
-          }
-        }}
-      ></form>
       <StyledInputField
         required
         type="text"
@@ -110,7 +85,6 @@ export default function AddForm() {
         }}
       />
       <StyledImageContainer>
-        <img type="file" src={data} />
         <input type="file" name="file" />
       </StyledImageContainer>
       <StyledTextarea

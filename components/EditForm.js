@@ -3,6 +3,7 @@ import { ButtonsEdit } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function EditForm({ characterId }) {
   const findCharacter = useStore(state => state.findCharacter);
@@ -14,6 +15,8 @@ export default function EditForm({ characterId }) {
   );
   const { push } = useRouter();
   const editCharacter = useStore(state => state.editCharacter);
+
+  const [image, setImage] = useState(findCharacter(characterId)?.image ?? null);
 
   function submitForm(event) {
     event.preventDefault();
@@ -38,6 +41,11 @@ export default function EditForm({ characterId }) {
           setInputName(event.target.value);
         }}
       />
+      {image && (
+        <div style={{ position: 'relative', width: 200 }}>
+          <Image src={image.url} height={image.height} width={image.width} />
+        </div>
+      )}
       <StyledTextarea
         required
         type="text"

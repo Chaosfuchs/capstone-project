@@ -2,6 +2,7 @@ import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import useHydration from '../hooks/useHydration';
+import Image from 'next/image';
 
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
@@ -15,7 +16,13 @@ export default function ShowCharacter() {
           <StyledCard key={character.id}>
             <ul>
               <StyledName>{character.name}</StyledName>
-              <li>{character.myImage}</li>
+              <li style={{ position: 'relative', width: '50px' }}>
+                <Image
+                  src={character.image.url}
+                  height={character.image.height}
+                  width={character.image.width}
+                />
+              </li>
               <br />
               <li>{character.information}</li>
             </ul>

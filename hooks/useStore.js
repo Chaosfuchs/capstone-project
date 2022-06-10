@@ -103,7 +103,7 @@ const useStore = create(
             return {
               characters: state.characters.map(character =>
                 character.id === currentCharacter.id
-                  ? currentCharacter
+                  ? { ...character, ...currentCharacter }
                   : character
               ),
             };
@@ -151,7 +151,7 @@ const useStore = create(
       };
     },
     {
-      name: 'rpg-sheet-creator',
+      name: '_rpg-sheet-creator',
       partialize: state =>
         Object.fromEntries(
           Object.entries(state).filter(([key]) => ['characters'].includes(key))
