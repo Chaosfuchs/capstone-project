@@ -69,7 +69,6 @@ const StyledOverlay = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 10;
 `;
 
 const StyledCloseButton = styled.button`
@@ -94,14 +93,14 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 350px;
-  height: 500px;
   white-space: pre-line;
   word-break: break-word;
-  margin: 10px 10px 30px;
+  margin: 10px;
   padding: 0;
   border-radius: 10px;
   overflow-y: auto;
   border: 1px solid black;
+  max-height: 70vh;
 
   ul {
     padding: 10px;
