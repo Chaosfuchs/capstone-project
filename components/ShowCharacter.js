@@ -7,7 +7,6 @@ import Image from 'next/image';
 
 import { useState } from 'react';
 
-
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
   const [character, setCharacter] = useState(null);
@@ -27,6 +26,15 @@ export default function ShowCharacter() {
           <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
           <ul>
             <StyledName>{character.name}</StyledName>
+            {character.image && (
+              <li style={{ position: 'relative', width: '50px' }}>
+                <Image
+                  src={character.image.url}
+                  height={character.image.height}
+                  width={character.image.width}
+                />
+              </li>
+            )}
             <br />
             <li>{character.information}</li>
             <br />
@@ -69,17 +77,16 @@ export default function ShowCharacter() {
               <StyledName>{character.name}</StyledName>
 
               {character.image && (
-                <li style={{ position: 'relative', width: '50px' }}>
+                <li style={{ width: '50px' }}>
                   <Image
                     src={character.image.url}
                     height={character.image.height}
                     width={character.image.width}
                   />
-                  <br />
                 </li>
               )}
+              <br />
               <li>{character.information}</li>
-
             </ul>
           </StyledCard>
         ))}

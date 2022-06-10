@@ -39,7 +39,7 @@ const StyledNavbar = styled.nav`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 0;
+  z-index: 2;
   height: 60px;
 `;
 

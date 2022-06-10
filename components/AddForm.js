@@ -91,10 +91,6 @@ export default function AddForm() {
         }}
       />
 
-      <StyledImageContainer>
-        <input type="file" name="file" />
-      </StyledImageContainer>
-
       <StyledInputField
         required
         type="text"
@@ -106,6 +102,9 @@ export default function AddForm() {
           setInputType(event.target.value);
         }}
       />
+      <StyledImageContainer>
+        <input type="file" name="file" />
+      </StyledImageContainer>
 
       <StyledTextarea
         required

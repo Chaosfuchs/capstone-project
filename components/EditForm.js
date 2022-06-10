@@ -46,12 +46,6 @@ export default function EditForm({ characterId }) {
         }}
       />
 
-      {image && (
-        <div style={{ position: 'relative', width: 200 }}>
-          <Image src={image.url} height={image.height} width={image.width} />
-        </div>
-      )}
-
       <StyledInputField
         required
         type="text"
@@ -63,6 +57,12 @@ export default function EditForm({ characterId }) {
           setInputType(event.target.value);
         }}
       />
+
+      {image && (
+        <div style={{ width: 200 }}>
+          <Image src={image.url} height={image.height} width={image.width} />
+        </div>
+      )}
 
       <StyledTextarea
         required
