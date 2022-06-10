@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
+  const [inputType, setInputType] = useState('');
   const [inputInformation, setInputInformation] = useState('');
   const addCharacter = useStore(state => state.addCharacter);
 
@@ -19,6 +20,7 @@ export default function AddForm() {
     const formValues = Object.fromEntries(formData);
     addCharacter(formValues);
     setInputName('');
+    setInputType('');
     setInputInformation('');
     push('/characters');
   }
@@ -26,6 +28,7 @@ export default function AddForm() {
   function handleReset(event) {
     event.preventDefault();
     setInputName('');
+    setInputType('');
     setInputInformation('');
   }
 
@@ -44,6 +47,17 @@ export default function AddForm() {
         placeholder="Name"
         onChange={event => {
           setInputName(event.target.value);
+        }}
+      />
+      <StyledInputField
+        required
+        type="text"
+        value={inputType}
+        name="type"
+        maxLength={30}
+        placeholder="RPG-Name"
+        onChange={event => {
+          setInputType(event.target.value);
         }}
       />
       <StyledTextarea
@@ -72,7 +86,7 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
@@ -85,7 +99,7 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.card};
+    background-color: ${theme.colors.background};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowNeon};
     border: ${theme.borders.neonBorder};
