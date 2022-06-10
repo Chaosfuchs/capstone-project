@@ -27,7 +27,7 @@ export default function ShowCharacter() {
           <ul>
             <StyledName>{character.name}</StyledName>
             {character.image && (
-              <li style={{ position: 'relative', width: '50px' }}>
+              <li style={{ width: '50px' }}>
                 <Image
                   src={character.image.url}
                   height={character.image.height}
