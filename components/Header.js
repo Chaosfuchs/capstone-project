@@ -16,6 +16,7 @@ export const Title = styled.span`
   right: 0;
   left: 0;
   top: 0;
+  z-index: 2;
 
   img {
     position: fixed;

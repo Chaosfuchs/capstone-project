@@ -1,28 +1,56 @@
 import styled, { css } from 'styled-components';
 import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import Image from 'next/image';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputType, setInputType] = useState('');
   const [inputInformation, setInputInformation] = useState('');
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
   const addCharacter = useStore(state => state.addCharacter);
 
   const { push } = useRouter();
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append('id', nanoid());
-    const formValues = Object.fromEntries(formData);
-    addCharacter(formValues);
-    setInputName('');
-    setInputType('');
-    setInputInformation('');
-    push('/characters');
+    const { file, ...formValues } = Object.fromEntries(formData);
+
+    try {
+      if (file.name) {
+        const response = await axios.post(
+          '/api/upload',
+          { file },
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
+
+        addCharacter({
+          ...formValues,
+          image: {
+            url: response.data.url,
+            height: response.data.height,
+            width: response.data.width,
+          },
+        });
+      } else {
+        addCharacter(formValues);
+      }
+      setInputName('');
+      setInputInformation('');
+      push('/characters');
+    } catch (error) {}
   }
 
   function handleReset(event) {
@@ -49,6 +77,7 @@ export default function AddForm() {
           setInputName(event.target.value);
         }}
       />
+
       <StyledInputField
         required
         type="text"
@@ -60,6 +89,10 @@ export default function AddForm() {
           setInputType(event.target.value);
         }}
       />
+      <StyledImageContainer>
+        <input type="file" name="file" />
+      </StyledImageContainer>
+
       <StyledTextarea
         required
         type="text"
@@ -82,6 +115,11 @@ const StyledFormContainer = styled.form`
   gap: 20px;
   margin: 0 10px;
   padding: 5px;
+
+  div {
+    display: flex;
+    gap: 30px;
+  }
 `;
 
 const StyledInputField = styled.input`
@@ -95,6 +133,19 @@ const StyledInputField = styled.input`
   height: 30px;
   padding: 5px;
   border-radius: 10px;
+`;
+
+const StyledImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  img {
+    position: fixed;
+    top: 80px;
+    right: 10%;
+    width: 80px;
+    border-radius: 10px;
+  }
 `;
 
 const StyledTextarea = styled.textarea`
