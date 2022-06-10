@@ -66,7 +66,7 @@ const StyledOverlay = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   bottom: 0;
 `;
