@@ -7,8 +7,8 @@ import Image from 'next/image';
 export default function DetailedCharacterCard({ characterId }) {
   const { push } = useRouter();
 
-  function handleClose(e) {
-    e.stopPropagation();
+  function handleClose(event) {
+    event.stopPropagation();
     push('/characters');
   }
 
@@ -33,9 +33,7 @@ export default function DetailedCharacterCard({ characterId }) {
                 />
               </li>
             )}
-            <br />
             <li>{character.information}</li>
-            <br />
             <li>Rpg-Name: {character.type}</li>
           </ul>
           <div>
@@ -106,6 +104,10 @@ const StyledCard = styled.div`
     padding: 10px;
     margin: 5px;
     list-style: none;
+
+    li {
+      padding: 10px;
+    }
   }
 
   @media (min-width: 400px) {

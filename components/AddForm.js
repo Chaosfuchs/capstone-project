@@ -50,9 +50,7 @@ export default function AddForm() {
       setInputName('');
       setInputInformation('');
       push('/characters');
-    } catch (error) {
-      setError(error);
-    }
+    } catch (error) {}
   }
 
   function handleReset(event) {
@@ -68,17 +66,6 @@ export default function AddForm() {
       onSubmit={submitForm}
       onReset={handleReset}
     >
-      <div>
-        {data && (
-          <>
-            <h2>{data.name}</h2>
-            <p>{data.description}</p>
-            <pre>{JSON.stringify(data, null, 4)}</pre>
-          </>
-        )}
-      </div>
-      {error && <div>{error.message}</div>}
-
       <StyledInputField
         required
         type="text"
