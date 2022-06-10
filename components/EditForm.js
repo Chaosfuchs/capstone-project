@@ -57,9 +57,11 @@ export default function EditForm({ characterId }) {
           setInputType(event.target.value);
         }}
       />
-      {image && (
-        <Image src={image.url} height={image.height} width={image.width} />
-      )}
+      <StyledImage>
+        {image && (
+          <Image src={image.url} height={image.height} width={image.width} />
+        )}
+      </StyledImage>
       <StyledTextarea
         required
         type="text"
@@ -107,4 +109,8 @@ const StyledTextarea = styled.textarea`
   resize: none;
   padding: 10px;
   border-radius: 10px;
+`;
+
+const StyledImage = styled.div`
+  max-width: 50px;
 `;
