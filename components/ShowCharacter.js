@@ -22,7 +22,7 @@ export default function ShowCharacter() {
 
     return (
       <StyledOverlay>
-        <StyledCard key={character.id} onClick={setShowDetailedCharacter(true)}>
+        <StyledCard>
           <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
           <ul>
             <StyledName>{character.name}</StyledName>
