@@ -85,6 +85,7 @@ const StyledFormContainer = styled.form`
   gap: 20px;
   margin: 0 10px;
   padding: 5px;
+  position: relative;
 `;
 
 const StyledInputField = styled.input`
@@ -114,7 +115,7 @@ const StyledTextarea = styled.textarea`
 
 const StyledImage = styled.div`
   position: absolute;
-  top: 80px;
-  right: 60px;
+  top: 10px;
+  right: 30px;
   max-width: 70px;
 `;
