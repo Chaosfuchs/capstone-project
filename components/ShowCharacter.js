@@ -28,18 +28,18 @@ export default function ShowCharacter() {
             }}
           >
             <ul>
-              <StyledName>{character.name}</StyledName>
-
-              {character.image && (
-                <StyledImage>
-                  <Image
-                    src={character.image.url}
-                    height={character.image.height}
-                    width={character.image.width}
-                  />
-                </StyledImage>
-              )}
-              <br />
+              <div>
+                <StyledName>{character.name}</StyledName>
+                {character.image && (
+                  <StyledImage>
+                    <Image
+                      src={character.image.url}
+                      height={character.image.height}
+                      width={character.image.width}
+                    />
+                  </StyledImage>
+                )}
+              </div>
               <li>{character.type}</li>
             </ul>
           </StyledCard>
@@ -81,6 +81,14 @@ const StyledCard = styled.div`
     padding: 10px;
     margin: 5px;
     list-style: none;
+
+    li {
+      margin: 5px;
+    }
+
+    div {
+      padding: 0;
+    }
   }
 
   @media (min-width: 400px) {

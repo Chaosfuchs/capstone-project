@@ -16,7 +16,8 @@ export default function Home() {
           <p>Create: create your Character-Sheet.</p>
           <p>
             Characters: see your created characters where you can edit or delete
-            it
+            it <br />
+            (Images should be square!)
           </p>
           <p>Here you can roll a dice for your Roleplay-Round.</p>
         </InfoContainer>

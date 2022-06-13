@@ -24,6 +24,7 @@ export default function DetailedCharacterCard({ characterId }) {
           <StyledCloseButton onClick={handleClose}>X</StyledCloseButton>
           <ul>
             <StyledName>{character.name}</StyledName>
+            <li>{character.information}</li>
             {character.image && (
               <StyledImage>
                 <Image
@@ -33,7 +34,6 @@ export default function DetailedCharacterCard({ characterId }) {
                 />
               </StyledImage>
             )}
-            <li>{character.information}</li>
             <li>Rpg-Name: {character.type}</li>
           </ul>
           <div>
@@ -83,7 +83,9 @@ const StyledCloseButton = styled.button`
 `;
 
 const StyledImage = styled.li`
-  width: 50px;
+  width: 150px;
+  padding: 0;
+  margin: 0;
 `;
 
 const StyledCard = styled.div`
