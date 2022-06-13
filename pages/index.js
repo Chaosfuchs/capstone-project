@@ -13,7 +13,10 @@ export default function Home() {
       <HomeContainer>
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
-          <p>Create: create your Character-Sheet.</p>
+          <p>
+            Create: create your Character-Sheet. <br />
+            (Images should be square!)
+          </p>
           <p>
             Characters: see your created characters where you can edit or delete
             it

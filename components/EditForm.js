@@ -45,7 +45,6 @@ export default function EditForm({ characterId }) {
           setInputName(event.target.value);
         }}
       />
-
       <StyledInputField
         required
         type="text"
@@ -57,9 +56,12 @@ export default function EditForm({ characterId }) {
           setInputType(event.target.value);
         }}
       />
-      {image && (
-        <Image src={image.url} height={image.height} width={image.width} />
-      )}
+      <StyledImage>
+        {image && (
+          <Image src={image.url} height={image.height} width={image.width} />
+        )}
+      </StyledImage>
+
       <StyledTextarea
         required
         type="text"
@@ -72,6 +74,7 @@ export default function EditForm({ characterId }) {
           setInputInformation(event.target.value);
         }}
       />
+
       <ButtonsEdit />
     </StyledFormContainer>
   );
@@ -82,6 +85,7 @@ const StyledFormContainer = styled.form`
   gap: 20px;
   margin: 0 10px;
   padding: 5px;
+  position: relative;
 `;
 
 const StyledInputField = styled.input`
@@ -107,4 +111,11 @@ const StyledTextarea = styled.textarea`
   resize: none;
   padding: 10px;
   border-radius: 10px;
+`;
+
+const StyledImage = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  max-width: 70px;
 `;
