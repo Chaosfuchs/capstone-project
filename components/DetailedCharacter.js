@@ -77,7 +77,7 @@ const StyledCloseButton = styled.button`
   `};
   border: 1px solid black;
   width: 30px;
-  margin: 20px;
+  margin: 10px 0px 10px 10px;
   padding: 5px;
   border-radius: 999px;
 `;
@@ -94,8 +94,8 @@ const StyledCard = styled.div`
     background-image: ${theme.backgroundImage.paper};
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
   max-width: 350px;
   white-space: pre-line;
   word-break: break-word;
@@ -110,6 +110,7 @@ const StyledCard = styled.div`
     padding: 10px;
     margin: 5px;
     list-style: none;
+    overflow-y: auto;
 
     li {
       padding: 10px;
@@ -123,8 +124,10 @@ const StyledCard = styled.div`
 
   div {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 5px;
+    height: 40px;
 
     button {
       ${({ theme }) => css`
@@ -138,6 +141,7 @@ const StyledCard = styled.div`
       justify-content: center;
       gap: 5px;
       width: 80px;
+      height: 30px;
       margin: 5px 30px;
       padding: 5px;
       border-radius: 999px;
