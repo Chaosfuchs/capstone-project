@@ -13,10 +13,8 @@ const Toast = props => {
           .map(toast => (
             <motion.div
               animate={{
-                x: 0,
                 y: 100,
                 scale: 1,
-                rotate: 0,
               }}
               key={toast.id}
             >

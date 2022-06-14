@@ -9,11 +9,7 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <Link passHref href="/">
-          <StyledLinkNavbar
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            isActive={router.pathname === '/'}
-          >
+          <StyledLinkNavbar isActive={router.pathname === '/'}>
             Home
           </StyledLinkNavbar>
         </Link>
