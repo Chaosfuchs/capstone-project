@@ -9,7 +9,6 @@ export default function Dice() {
   const currentRoll = useStore(state => state.currentRoll);
 
   const [diceId, setDiceId] = useState(null);
-
   const [rotate, setRotate] = useState(false);
 
   return (
@@ -27,22 +26,19 @@ export default function Dice() {
           </option>
         ))}
       </select>
-      <motion.div
-        animate={{ rotate: rotate ? 360 : 0 }}
-        onClick={() => {
-          setRotate(!rotate);
-        }}
-      >
+      <motion.div animate={{ rotate: rotate ? 360 : 0 }}>
         {currentRoll >= 0 ? currentRoll : ''}
       </motion.div>
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => {
           rollDice(diceId);
           setRotate(!rotate);
         }}
       >
         Roll
-      </button>
+      </motion.button>
     </StyledDiceContainer>
   );
 }
