@@ -45,7 +45,9 @@ export const theme = {
   },
   backgroundImage: {
     paper: 'url(/old-paper.jpeg)',
-    stars: 'url(/background.jpeg)',
+    layout: 'url(/dice-texture2.png)',
     dice: 'url(/dice-texture2.png)',
+    wood1: 'url(/wood.png)',
+    wood2: 'url(/wood2.png)',
   },
 };
