@@ -1,11 +1,24 @@
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export function ButtonsForm() {
   return (
     <StyledButtonContainer>
-      <button type="submit">Save</button>
-      <button type="reset">Reset Form</button>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        type="submit"
+      >
+        Save
+      </motion.button>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        type="reset"
+      >
+        Reset Form
+      </motion.button>
     </StyledButtonContainer>
   );
 }
@@ -13,9 +26,17 @@ export function ButtonsForm() {
 export function ButtonsEdit() {
   return (
     <StyledButtonContainer>
-      <button type="submit">Update</button>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        type="submit"
+      >
+        Update
+      </motion.button>
       <Link passHref href="/characters">
-        <button>Cancel</button>
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          Cancel
+        </motion.button>
       </Link>
     </StyledButtonContainer>
   );

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function DetailedCharacterCard({ characterId }) {
   const { push } = useRouter();
@@ -38,11 +39,16 @@ export default function DetailedCharacterCard({ characterId }) {
           </ul>
           <div>
             <Link passHref href={`/update-character/${character.id}`}>
-              <button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <img src={'/pencil-outline.svg'} width="20px" /> Edit
-              </button>
+              </motion.button>
             </Link>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               type="button"
               onClick={() => {
                 deleteCharacter(character.id);
@@ -50,7 +56,7 @@ export default function DetailedCharacterCard({ characterId }) {
               }}
             >
               <img src={'/trash-can-outline.svg'} width="20px" /> Delete
-            </button>
+            </motion.button>
           </div>
         </StyledCard>
       )}
@@ -96,7 +102,7 @@ const StyledCard = styled.div`
   `}
   display: grid;
   grid-template-rows: 50px 1fr 50px;
-  max-width: 350px;
+  width: 350px;
   white-space: pre-line;
   word-break: break-word;
   margin: 10px;
@@ -154,5 +160,6 @@ const StyledName = styled.li`
     color: ${theme.colors.characterName};
     font-size: ${theme.fonts.fontSizeNormal};
   `};
+  font-size: 2rem;
   font-weight: 800;
 `;
