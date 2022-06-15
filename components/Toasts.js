@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import useStore from '../hooks/useStore';
+import { motion } from 'framer-motion';
 
 const Toast = props => {
   const toasts = useStore(state => state.toasts);
@@ -10,9 +11,15 @@ const Toast = props => {
         {toasts
           .filter(toast => toast.shown)
           .map(toast => (
-            <div key={toast.id}>
+            <motion.div
+              animate={{
+                y: 100,
+                scale: 1,
+              }}
+              key={toast.id}
+            >
               <p>{toast.description}</p>
-            </div>
+            </motion.div>
           ))}
       </NotificationContainer>
     </>

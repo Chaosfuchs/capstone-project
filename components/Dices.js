@@ -1,6 +1,7 @@
 import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Dice() {
   const dices = useStore(state => state.dices);
@@ -8,6 +9,7 @@ export default function Dice() {
   const currentRoll = useStore(state => state.currentRoll);
 
   const [diceId, setDiceId] = useState(null);
+  const [rotate, setRotate] = useState(false);
 
   return (
     <StyledDiceContainer>
@@ -24,8 +26,19 @@ export default function Dice() {
           </option>
         ))}
       </select>
-      <div>{currentRoll >= 0 ? currentRoll : ''}</div>
-      <button onClick={() => rollDice(diceId)}>Roll</button>
+      <motion.div animate={{ rotate: rotate ? 360 : 0 }}>
+        {currentRoll >= 0 ? currentRoll : ''}
+      </motion.div>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => {
+          rollDice(diceId);
+          setRotate(!rotate);
+        }}
+      >
+        Roll
+      </motion.button>
     </StyledDiceContainer>
   );
 }
