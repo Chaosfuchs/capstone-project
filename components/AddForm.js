@@ -47,6 +47,7 @@ export default function AddForm() {
       } else {
         addCharacter(formValues);
       }
+
       setInputName('');
       setInputInformation('');
       push('/characters');

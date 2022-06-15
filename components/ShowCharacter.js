@@ -25,6 +25,7 @@ export default function ShowCharacter() {
               setShowDetailedCharacter(true);
               setCharacter(character);
               push(`/detailed-character/${character.id}`);
+              console.log(character);
             }}
           >
             <ul>
