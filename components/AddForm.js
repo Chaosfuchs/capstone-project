@@ -21,7 +21,6 @@ export default function AddForm() {
   async function submitForm(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    formData.append('id', nanoid());
     const { file, ...formValues } = Object.fromEntries(formData);
 
     try {

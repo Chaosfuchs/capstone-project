@@ -20,12 +20,12 @@ export default function ShowCharacter() {
       {hydrated &&
         characters.map(character => (
           <StyledCard
-            key={character.id}
+            key={character._id}
             onClick={() => {
               setShowDetailedCharacter(true);
               setCharacter(character);
               push(`/detailed-character/${character.id}`);
-              console.log(character);
+              // console.log(character);
             }}
           >
             <ul>

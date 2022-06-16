@@ -1,3 +1,4 @@
+import axios from 'axios';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -77,37 +78,61 @@ const useStore = create(
           },
         ],
 
-        addCharacter: newCharacter => {
-          set(state => {
-            state.toggleToast(toastTypes.ADD);
-            return {
-              characters: [newCharacter, ...state.characters],
-            };
-          });
+        addCharacter: async newCharacter => {
+          try {
+            const response = await axios.post('/api/characters', newCharacter);
+            const character = response.data.data;
+            set(state => {
+              state.toggleToast(toastTypes.ADD);
+              return {
+                characters: [
+                  { ...character, id: character._id },
+                  ...state.characters,
+                ],
+              };
+            });
+          } catch (error) {
+            console.error(error);
+          }
         },
 
-        deleteCharacter: id => {
-          set(state => {
-            state.toggleToast(toastTypes.DELETE);
-            return {
-              characters: state.characters.filter(
-                deleteCharacter => deleteCharacter.id !== id
-              ),
-            };
-          });
+        deleteCharacter: async id => {
+          try {
+            const response = await axios.post('/api/characters', id);
+            const deleteCharacter = response.data.data;
+            set(state => {
+              state.toggleToast(toastTypes.DELETE);
+              return {
+                characters: state.characters.filter(
+                  deleteCharacter => deleteCharacter.id !== id
+                ),
+              };
+            });
+          } catch (error) {
+            console.error(error);
+          }
         },
 
-        editCharacter: currentCharacter => {
-          set(state => {
-            state.toggleToast(toastTypes.EDIT);
-            return {
-              characters: state.characters.map(character =>
-                character.id === currentCharacter.id
-                  ? { ...character, ...currentCharacter }
-                  : character
-              ),
-            };
-          });
+        editCharacter: async currentCharacter => {
+          try {
+            const response = await axios.post(
+              '/api/characters',
+              currentCharacter
+            );
+            const currentCharacter = response.data.data;
+            set(state => {
+              state.toggleToast(toastTypes.EDIT);
+              return {
+                characters: state.characters.map(character =>
+                  character.id === currentCharacter.id
+                    ? { ...character, ...currentCharacter }
+                    : character
+                ),
+              };
+            });
+          } catch (error) {
+            console.error(error);
+          }
         },
 
         findCharacter: characterId => {
