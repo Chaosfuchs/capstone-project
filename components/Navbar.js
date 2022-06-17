@@ -30,7 +30,7 @@ export default function Navbar() {
 
 const StyledNavbar = styled.nav`
   ${({ theme }) => css`
-    background-image: ${theme.backgroundImage.dice};
+    background-image: ${theme.backgroundImage.layout};
   `}
   display: flex;
   position: fixed;
@@ -46,11 +46,11 @@ const StyledNavbar = styled.nav`
 const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeButton};
+    background-image: ${theme.backgroundImage.wood1};
   `}
   color: ${({ isActive }) => (isActive ? '#2F97C1' : 'white')};
   box-shadow: ${({ isActive }) =>
     isActive ? '5px 5px 10px darkblue' : 'none'};
-  background-image: url(/wood.png);
   text-align: center;
   text-decoration: none;
   padding: 15px;

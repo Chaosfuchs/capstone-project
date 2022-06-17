@@ -14,11 +14,11 @@ export default function Home() {
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
           <p>
-            Create: create your Character-Sheet. <br />
+            Create: Create your Character-Sheet. <br />
             (Images should be square!)
           </p>
           <p>
-            Characters: see your created characters where you can edit or delete
+            Characters: See your created characters where you can edit or delete
             it
           </p>
           <p>Here you can roll a dice for your Roleplay-Round.</p>

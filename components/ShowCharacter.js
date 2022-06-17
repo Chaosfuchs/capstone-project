@@ -1,6 +1,5 @@
 import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
-import useHydration from '../hooks/useHydration';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -9,7 +8,6 @@ import DetailedCharacterCard from '../pages/detailed-character/[characterId]';
 export default function ShowCharacter() {
   const characters = useStore(state => state.characters);
   const [character, setCharacter] = useState(null);
-  const hydrated = useHydration();
   const [showDetailedCharacter, setShowDetailedCharacter] = useState(false);
 
   const { push } = useRouter();
@@ -17,33 +15,32 @@ export default function ShowCharacter() {
   return (
     <Main>
       {showDetailedCharacter && <DetailedCharacterCard character={character} />}
-      {hydrated &&
-        characters.map(character => (
-          <StyledCard
-            key={character.id}
-            onClick={() => {
-              setShowDetailedCharacter(true);
-              setCharacter(character);
-              push(`/detailed-character/${character.id}`);
-            }}
-          >
-            <ul>
-              <div>
-                <StyledName>{character.name}</StyledName>
-                {character.image && (
-                  <StyledImage>
-                    <Image
-                      src={character.image.url}
-                      height={character.image.height}
-                      width={character.image.width}
-                    />
-                  </StyledImage>
-                )}
-              </div>
-              <li>{character.type}</li>
-            </ul>
-          </StyledCard>
-        ))}
+      {characters.map(character => (
+        <StyledCard
+          key={character.id}
+          onClick={() => {
+            setShowDetailedCharacter(true);
+            setCharacter(character);
+            push(`/detailed-character/${character.id}`);
+          }}
+        >
+          <ul>
+            <div>
+              <StyledName>{character.name}</StyledName>
+              {character.image && (
+                <StyledImage>
+                  <Image
+                    src={character.image.url}
+                    height={character.image.height}
+                    width={character.image.width}
+                  />
+                </StyledImage>
+              )}
+            </div>
+            <li>{character.type}</li>
+          </ul>
+        </StyledCard>
+      ))}
     </Main>
   );
 }
