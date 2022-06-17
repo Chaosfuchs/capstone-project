@@ -1,6 +1,5 @@
 import axios from 'axios';
 import create from 'zustand';
-import { persist } from 'zustand/middleware';
 
 const toastTypes = {
   ADD: 1,
@@ -14,7 +13,6 @@ const useStore = create((set, get) => {
 
     loadCharacters: async () => {
       const response = await axios.get('/api/characters');
-      console.log(response);
       const characters = response.data.data.map(character => ({
         ...character,
         id: character._id,
@@ -109,7 +107,6 @@ const useStore = create((set, get) => {
         const response = await axios.delete('/api/characters', {
           data: { id },
         });
-        console.log(10, response);
         const { _id } = response.data.data;
         set(state => {
           state.toggleToast(toastTypes.DELETE);
