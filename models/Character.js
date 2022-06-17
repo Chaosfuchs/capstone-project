@@ -9,7 +9,7 @@ const CharacterSchema = new mongoose.Schema({
   },
   information: {
     type: String,
-    required: [true, 'Please provide a information for this character'],
+    required: [true, 'Please provide some information about this character'],
     maxlength: [3000, 'Information cannot be more than 3000 characters'],
   },
   type: {
