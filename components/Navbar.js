@@ -53,9 +53,9 @@ const StyledLinkNavbar = styled.a`
     isActive ? '5px 5px 10px darkblue' : 'none'};
   text-align: center;
   text-decoration: none;
-  padding: 15px;
+  padding: 10px;
   margin: 5px;
   border-radius: 15px;
   border: 1px solid black;
-  width: 130px;
+  width: 100px;
 `;

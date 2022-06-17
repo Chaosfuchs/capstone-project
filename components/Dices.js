@@ -87,9 +87,9 @@ const StyledDiceContainer = styled.div`
     // color: white;
     display: flex;
     justify-content: center;
-    width: 100px;
+    width: 80px;
     margin: 10px 30px;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid black;
     border-radius: 10px;
   }
