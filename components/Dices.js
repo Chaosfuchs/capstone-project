@@ -57,9 +57,14 @@ const StyledDiceContainer = styled.div`
   height: 250px;
 
   select {
+    ${({ theme }) => css`
+      box-shadow: ${theme.boxShadow.shadowHeavy};
+      background-image: ${theme.backgroundImage.form};
+    `};
+    border-radius: 5px;
+    text-align: center;
     margin: 10px;
     padding: 5px;
-    box-shadow: 5px 5px 10px black;
   }
 
   div {
@@ -84,12 +89,12 @@ const StyledDiceContainer = styled.div`
       background-image: ${theme.backgroundImage.wood2};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `};
-    color: white;
+    // color: white;
     display: flex;
     justify-content: center;
     width: 80px;
     margin: 10px 30px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
   }

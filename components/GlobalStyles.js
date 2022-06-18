@@ -19,10 +19,10 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
   colors: {
-    primary: '#201026',
+    primary: '#A1C6EA',
     secondary: '#2C594C',
     button: '#2F97C1',
-    background: '#AEFFFF',
+    background: '#BBD1EA',
     toast: '#9AFFFB',
     characterName: '#2F97C1',
   },
@@ -51,7 +51,7 @@ export const theme = {
     wood2: 'url(/wood2.png)',
   },
   gradient: {
-    layout: '-webkit-linear-gradient(30deg, #A0BEF8, #B5F0F0)',
+    layout: '-webkit-linear-gradient(90deg, #9442FF, #3378FF)',
     toast: '-webkit-linear-gradient(90deg, #3378FF, #9442FE)',
   },
 };
