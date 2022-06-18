@@ -44,7 +44,6 @@ const InfoContainer = styled.div`
   margin: 10px;
   padding: 0px 10px;
   border-radius: 10px;
-  border: 1px solid black;
 `;
 
 const HomeContainer = styled.div`
