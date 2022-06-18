@@ -52,6 +52,5 @@ export const theme = {
   },
   gradient: {
     layout: '-webkit-linear-gradient(90deg, #9442FF, #3378FF)',
-    toast: '-webkit-linear-gradient(90deg, #3378FF, #9442FE)',
   },
 };
