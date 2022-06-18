@@ -39,15 +39,19 @@ export const theme = {
     fontSizeBig: '2rem',
   },
   borders: {
-    purpleBorder: '3px solid #4C428C',
-    darkBorder: '3px solid #201026',
+    light: '1px solid #4C428C',
+    dark: '1px solid #201026',
     neonBorder: '3px solid #2AFFFF',
   },
   backgroundImage: {
+    form: 'url(/pergament.png)',
     paper: 'url(/old-paper.jpeg)',
-    layout: 'url(/dice-texture2.png)',
     dice: 'url(/dice-texture2.png)',
     wood1: 'url(/wood.png)',
     wood2: 'url(/wood2.png)',
+  },
+  gradient: {
+    layout: '-webkit-linear-gradient(30deg, #A0BEF8, #B5F0F0)',
+    toast: '-webkit-linear-gradient(90deg, #3378FF, #9442FE)',
   },
 };

@@ -30,7 +30,7 @@ export default function Navbar() {
 
 const StyledNavbar = styled.nav`
   ${({ theme }) => css`
-    background-image: ${theme.backgroundImage.layout};
+    background-image: ${theme.gradient.layout};
   `}
   display: flex;
   position: fixed;

@@ -113,7 +113,7 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 0 10px;
+  margin: 10px;
   padding: 5px;
 
   div {
@@ -124,10 +124,10 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.form};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   width: 50%;
   height: 30px;
@@ -150,10 +150,10 @@ const StyledImageContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.form};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   resize: none;
   padding: 10px;

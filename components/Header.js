@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Title = styled.span`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeBig};
-    background-image: ${theme.backgroundImage.layout};
+    background-image: ${theme.gradient.layout};
     color: ${theme.colors.primary};
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
