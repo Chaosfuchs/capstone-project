@@ -54,7 +54,6 @@ const StyledDiceContainer = styled.div`
   margin: 0px 10px;
   padding: 10px;
   border-radius: 40px;
-  border: 3px solid #3b2b00;
   height: 250px;
 
   select {
@@ -69,6 +68,7 @@ const StyledDiceContainer = styled.div`
       background-image: ${theme.backgroundImage.dice};
     `};
     // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    font-family: 'Joan', serif;
     border-radius: 15px;
     color: white;
     text-align: center;
@@ -81,10 +81,10 @@ const StyledDiceContainer = styled.div`
   button {
     ${({ theme }) => css`
       font-size: ${theme.fonts.fontSizeButton};
-      background-color: ${theme.colors.button};
+      background-image: ${theme.backgroundImage.wood2};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `};
-    // color: white;
+    color: white;
     display: flex;
     justify-content: center;
     width: 80px;

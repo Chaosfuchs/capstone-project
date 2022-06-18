@@ -7,6 +7,7 @@ export const Title = styled.span`
     color: ${theme.colors.primary};
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
+  font-family: 'Joan', serif;
   color: white;
   border-radius: 0 0 30px 30px;
   text-align: center;

@@ -45,12 +45,13 @@ const StyledNavbar = styled.nav`
 
 const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
-    font-size: ${theme.fonts.fontSizeButton};
+    font-size: ${theme.fonts.fontSizeNormal};
     background-image: ${theme.backgroundImage.wood1};
   `}
   color: ${({ isActive }) => (isActive ? '#2F97C1' : 'white')};
   box-shadow: ${({ isActive }) =>
     isActive ? '5px 5px 10px darkblue' : 'none'};
+  font-family: 'Joan', serif;
   text-align: center;
   text-decoration: none;
   padding: 10px;
