@@ -40,7 +40,7 @@ const StyledNavbar = styled.nav`
   left: 0;
   right: 0;
   z-index: 2;
-  height: 60px;
+  height: 70px;
   border-radius: 20px 20px 0 0;
 `;
 
