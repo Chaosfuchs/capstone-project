@@ -53,13 +53,13 @@ const StyledDiceContainer = styled.div`
   align-items: center;
   margin: 0px 10px;
   padding: 10px;
-  border-radius: 40px;
+  border-radius: 10px;
   height: 250px;
 
   select {
     ${({ theme }) => css`
       box-shadow: ${theme.boxShadow.shadowHeavy};
-      background-image: ${theme.backgroundImage.form};
+      background-image: ${theme.backgroundImage.paper};
     `};
     border-radius: 5px;
     text-align: center;

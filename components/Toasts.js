@@ -41,7 +41,7 @@ const NotificationContainer = styled.div`
     ${({ theme }) =>
       css`
         font-size: ${theme.fonts.fontSizeNormal};
-        background-image: ${theme.gradient.layout};
+        background-image: ${theme.gradient.toast};
       `};
     margin: 10px;
     padding: 5px;

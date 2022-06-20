@@ -22,7 +22,7 @@ export const theme = {
     primary: '#A1C6EA',
     secondary: '#2C594C',
     button: '#2F97C1',
-    background: '#BBD1EA',
+    background: '#DAFFFF',
     toast: '#9AFFFB',
     characterName: '#2F97C1',
   },
@@ -51,6 +51,7 @@ export const theme = {
     wood2: 'url(/wood2.png)',
   },
   gradient: {
-    layout: '-webkit-linear-gradient(90deg, #9442FF, #3378FF)',
+    layout: '-webkit-linear-gradient(90deg, #89A2A7, #B19B6A)',
+    toast: '-webkit-linear-gradient(90deg, #17CCE6, #D94AD4)',
   },
 };

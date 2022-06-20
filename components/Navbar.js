@@ -49,8 +49,7 @@ const StyledLinkNavbar = styled.a`
     background-image: ${theme.backgroundImage.wood1};
   `}
   color: ${({ isActive }) => (isActive ? '#2F97C1' : 'white')};
-  box-shadow: ${({ isActive }) =>
-    isActive ? '5px 5px 10px darkblue' : 'none'};
+  box-shadow: ${({ isActive }) => (isActive ? '5px 5px 10px #436066' : 'none')};
   font-family: 'Joan', serif;
   text-align: center;
   text-decoration: none;

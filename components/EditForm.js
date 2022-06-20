@@ -90,7 +90,8 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowHeavy};
     border: ${theme.borders.dark};
@@ -103,7 +104,8 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowHeavy};
     border: ${theme.borders.dark};
