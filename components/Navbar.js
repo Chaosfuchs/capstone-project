@@ -41,6 +41,7 @@ const StyledNavbar = styled.nav`
   right: 0;
   z-index: 2;
   height: 60px;
+  border-radius: 20px 20px 0 0;
 `;
 
 const StyledLinkNavbar = styled.a`
@@ -48,7 +49,7 @@ const StyledLinkNavbar = styled.a`
     font-size: ${theme.fonts.fontSizeNormal};
     background-image: ${theme.backgroundImage.wood1};
   `}
-  color: ${({ isActive }) => (isActive ? '#2F97C1' : 'white')};
+  color: ${({ isActive }) => (isActive ? '#8FF0F5' : 'white')};
   box-shadow: ${({ isActive }) => (isActive ? '5px 5px 10px #436066' : 'none')};
   font-family: 'Joan', serif;
   text-align: center;
