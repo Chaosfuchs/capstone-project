@@ -140,6 +140,20 @@ const StyledImageContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  input {
+    font-weight: 800;
+    color: white;
+  }
+
+  input[type='file']::file-selector-button {
+    ${({ theme }) => css`
+      background-color: ${theme.colors.button};
+    `};
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
   img {
     position: fixed;
     top: 80px;

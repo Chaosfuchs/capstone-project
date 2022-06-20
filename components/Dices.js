@@ -89,7 +89,8 @@ const StyledDiceContainer = styled.div`
       background-image: ${theme.backgroundImage.wood2};
       box-shadow: ${theme.boxShadow.shadowHeavy};
     `};
-    // color: white;
+    color: white;
+    font-weight: 800;
     display: flex;
     justify-content: center;
     width: 80px;
