@@ -83,17 +83,18 @@ export default function EditForm({ characterId }) {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 0 10px;
+  margin: 10px;
   padding: 5px;
   position: relative;
 `;
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   width: 50%;
   height: 30px;
@@ -103,10 +104,11 @@ const StyledInputField = styled.input`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   resize: none;
   padding: 10px;

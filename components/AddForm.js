@@ -113,7 +113,7 @@ export default function AddForm() {
 const StyledFormContainer = styled.form`
   display: grid;
   gap: 20px;
-  margin: 0 10px;
+  margin: 10px;
   padding: 5px;
 
   div {
@@ -124,10 +124,11 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   width: 50%;
   height: 30px;
@@ -138,6 +139,20 @@ const StyledInputField = styled.input`
 const StyledImageContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  input {
+    font-weight: 800;
+    color: white;
+  }
+
+  input[type='file']::file-selector-button {
+    ${({ theme }) => css`
+      background-color: ${theme.colors.button};
+    `};
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 
   img {
     position: fixed;
@@ -150,10 +165,11 @@ const StyledImageContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    background-color: ${theme.colors.background};
+    //background-color: ${theme.colors.background};
+    background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
-    box-shadow: ${theme.boxShadow.shadowNeon};
-    border: ${theme.borders.neonBorder};
+    box-shadow: ${theme.boxShadow.shadowHeavy};
+    border: ${theme.borders.dark};
   `}
   resize: none;
   padding: 10px;

@@ -17,7 +17,7 @@ const useStore = create((set, get) => {
         ...character,
         id: character._id,
       }));
-      set({ characters });
+      set({ characters: characters.reverse() });
     },
 
     dices: [

@@ -109,7 +109,6 @@ const StyledCard = styled.div`
   padding: 0;
   border-radius: 10px;
   overflow-y: auto;
-  border: 1px solid black;
   max-height: 70vh;
 
   ul {

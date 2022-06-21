@@ -19,10 +19,10 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
   colors: {
-    primary: '#201026',
+    primary: '#A1C6EA',
     secondary: '#2C594C',
     button: '#2F97C1',
-    background: '#AEFFFF',
+    background: '#DAFFFF',
     toast: '#9AFFFB',
     characterName: '#2F97C1',
   },
@@ -39,15 +39,19 @@ export const theme = {
     fontSizeBig: '2rem',
   },
   borders: {
-    purpleBorder: '3px solid #4C428C',
-    darkBorder: '3px solid #201026',
+    light: '1px solid #4C428C',
+    dark: '1px solid #201026',
     neonBorder: '3px solid #2AFFFF',
   },
   backgroundImage: {
+    form: 'url(/pergament.png)',
     paper: 'url(/old-paper.jpeg)',
-    layout: 'url(/dice-texture2.png)',
     dice: 'url(/dice-texture2.png)',
     wood1: 'url(/wood.png)',
     wood2: 'url(/wood2.png)',
+  },
+  gradient: {
+    layout: '-webkit-linear-gradient(90deg, #89A2A7, #B19B6A)',
+    toast: '-webkit-linear-gradient(90deg, #17CCE6, #D94AD4)',
   },
 };

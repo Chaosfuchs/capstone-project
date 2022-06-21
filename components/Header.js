@@ -3,10 +3,11 @@ import styled, { css } from 'styled-components';
 export const Title = styled.span`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeBig};
-    background-image: ${theme.backgroundImage.layout};
+    background-image: ${theme.gradient.layout};
     color: ${theme.colors.primary};
     box-shadow: ${theme.boxShadow.shadowHeavy};
   `}
+  font-family: 'Joan', serif;
   color: white;
   border-radius: 0 0 30px 30px;
   text-align: center;

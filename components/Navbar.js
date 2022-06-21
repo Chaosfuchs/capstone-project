@@ -30,7 +30,7 @@ export default function Navbar() {
 
 const StyledNavbar = styled.nav`
   ${({ theme }) => css`
-    background-image: ${theme.backgroundImage.layout};
+    background-image: ${theme.gradient.layout};
   `}
   display: flex;
   position: fixed;
@@ -40,22 +40,23 @@ const StyledNavbar = styled.nav`
   left: 0;
   right: 0;
   z-index: 2;
-  height: 60px;
+  height: 70px;
+  border-radius: 20px 20px 0 0;
 `;
 
 const StyledLinkNavbar = styled.a`
   ${({ theme }) => css`
-    font-size: ${theme.fonts.fontSizeButton};
+    font-size: ${theme.fonts.fontSizeNormal};
     background-image: ${theme.backgroundImage.wood1};
   `}
-  color: ${({ isActive }) => (isActive ? '#2F97C1' : 'white')};
-  box-shadow: ${({ isActive }) =>
-    isActive ? '5px 5px 10px darkblue' : 'none'};
+  color: ${({ isActive }) => (isActive ? '#8FF0F5' : 'white')};
+  box-shadow: ${({ isActive }) => (isActive ? '5px 5px 10px #436066' : 'none')};
+  font-family: 'Joan', serif;
   text-align: center;
   text-decoration: none;
-  padding: 15px;
+  padding: 10px;
   margin: 5px;
   border-radius: 15px;
   border: 1px solid black;
-  width: 130px;
+  width: 100px;
 `;

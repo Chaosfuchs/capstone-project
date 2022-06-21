@@ -13,10 +13,7 @@ export default function Home() {
       <HomeContainer>
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
-          <p>
-            Create: Create your Character-Sheet. <br />
-            (Images should be square!)
-          </p>
+          <p>Create: Create your Character-Sheet.</p>
           <p>
             Characters: See your created characters where you can edit or delete
             it
@@ -44,12 +41,12 @@ const InfoContainer = styled.div`
   margin: 10px;
   padding: 0px 10px;
   border-radius: 10px;
-  border: 1px solid black;
 `;
 
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 15px;
   margin: 10px;
   width: 350px;
 `;
