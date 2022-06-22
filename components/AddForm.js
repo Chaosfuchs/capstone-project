@@ -1,18 +1,14 @@
 import styled, { css } from 'styled-components';
-import { ButtonsForm } from './Buttons';
 import useStore from '../hooks/useStore';
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import Image from 'next/image';
+import { ButtonsForm } from './Buttons';
 
 export default function AddForm() {
   const [inputName, setInputName] = useState('');
   const [inputType, setInputType] = useState('');
   const [inputInformation, setInputInformation] = useState('');
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
 
   const addCharacter = useStore(state => state.addCharacter);
 
@@ -124,7 +120,6 @@ const StyledFormContainer = styled.form`
 
 const StyledInputField = styled.input`
   ${({ theme }) => css`
-    //background-color: ${theme.colors.background};
     background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowHeavy};
@@ -165,7 +160,6 @@ const StyledImageContainer = styled.div`
 
 const StyledTextarea = styled.textarea`
   ${({ theme }) => css`
-    //background-color: ${theme.colors.background};
     background-image: ${theme.backgroundImage.paper};
     font-size: ${theme.fonts.fontSizeNormal};
     box-shadow: ${theme.boxShadow.shadowHeavy};
