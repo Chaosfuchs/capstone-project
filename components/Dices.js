@@ -1,5 +1,5 @@
-import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
+import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
