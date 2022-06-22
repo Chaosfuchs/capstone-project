@@ -1,5 +1,5 @@
-import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
+import useStore from '../hooks/useStore';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -116,10 +116,6 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledImage = styled.li`
-  width: 50px;
-`;
-
 const StyledName = styled.li`
   ${({ theme }) => css`
     color: ${theme.colors.characterName};
@@ -127,4 +123,8 @@ const StyledName = styled.li`
   `};
 
   font-weight: 800;
+`;
+
+const StyledImage = styled.li`
+  width: 50px;
 `;
