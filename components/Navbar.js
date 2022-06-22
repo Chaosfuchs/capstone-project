@@ -9,19 +9,17 @@ export default function Navbar() {
     <>
       <StyledNavbar>
         <Link passHref href="/">
-          <StyledLinkNavbar isActive={router.pathname === '/'}>
-            Home
-          </StyledLinkNavbar>
+          <StyledLink isActive={router.pathname === '/'}>Home</StyledLink>
         </Link>
         <Link passHref href="/create-character">
-          <StyledLinkNavbar isActive={router.pathname === '/create-character'}>
+          <StyledLink isActive={router.pathname === '/create-character'}>
             Create
-          </StyledLinkNavbar>
+          </StyledLink>
         </Link>
         <Link passHref href="/characters">
-          <StyledLinkNavbar isActive={router.pathname === '/characters'}>
+          <StyledLink isActive={router.pathname === '/characters'}>
             Characters
-          </StyledLinkNavbar>
+          </StyledLink>
         </Link>
       </StyledNavbar>
     </>
@@ -44,7 +42,7 @@ const StyledNavbar = styled.nav`
   border-radius: 20px 20px 0 0;
 `;
 
-const StyledLinkNavbar = styled.a`
+const StyledLink = styled.a`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeNormal};
     background-image: ${theme.backgroundImage.wood1};
