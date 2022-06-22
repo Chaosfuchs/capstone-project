@@ -1,5 +1,5 @@
-import { Title } from '../components/Header';
 import styled, { css } from 'styled-components';
+import { Title } from '../components/Header';
 import Navbar from '../components/Navbar';
 import Dice from '../components/Dices';
 
@@ -10,7 +10,7 @@ export default function Home() {
         <img src={'/LogoDragon.svg'} width="35px" />
         RPG Sheet-Creator
       </Title>
-      <HomeContainer>
+      <HomeSection>
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
           <p>Create: Create your Character-Sheet.</p>
@@ -21,7 +21,7 @@ export default function Home() {
           <p>Here you can roll a dice for your Roleplay-Round.</p>
         </InfoContainer>
         <Dice />
-      </HomeContainer>
+      </HomeSection>
       <Navbar />
     </Main>
   );
@@ -43,7 +43,7 @@ const InfoContainer = styled.div`
   border-radius: 10px;
 `;
 
-const HomeContainer = styled.div`
+const HomeSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
