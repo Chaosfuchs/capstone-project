@@ -5,12 +5,12 @@ export default function LoginButton() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <Containe>
+      <Container>
         <p>Signed in as {session.user.email} </p>
         <StyledLoginButton onClick={() => signOut()}>
           Sign out
         </StyledLoginButton>
-      </Containe>
+      </Container>
     );
   }
   return (
