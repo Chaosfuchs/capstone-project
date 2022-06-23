@@ -1,7 +1,7 @@
-import { Title } from '../../components/Header';
 import styled from 'styled-components';
-import DetailedCharacterCard from '../../components/DetailedCharacter';
 import { useRouter } from 'next/router';
+import { Title } from '../../components/Header';
+import DetailedCharacterCard from '../../components/DetailedCharacter';
 
 export default function DetailedCharacter() {
   const router = useRouter();

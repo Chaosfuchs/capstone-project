@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { ButtonsEdit } from './Buttons';
 import useStore from '../hooks/useStore';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { ButtonsEdit } from './Buttons';
 
 export default function EditForm({ characterId }) {
   const findCharacter = useStore(state => state.findCharacter);

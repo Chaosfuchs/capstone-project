@@ -59,6 +59,5 @@ const StyledButtonContainer = styled.div`
     width: 140px;
     height: 50px;
     border-radius: 10px;
-    // color: white;
   }
 `;

@@ -1,5 +1,5 @@
-import useStore from '../hooks/useStore';
 import styled, { css } from 'styled-components';
+import useStore from '../hooks/useStore';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -75,25 +75,6 @@ const StyledOverlay = styled.div`
   bottom: 0;
 `;
 
-const StyledCloseButton = styled.button`
-  ${({ theme }) => css`
-    font-size: ${theme.fonts.fontSizeSmall};
-    background-color: ${theme.colors.button};
-    box-shadow: ${theme.boxShadow.shadowLight};
-  `};
-  border: 1px solid black;
-  width: 30px;
-  margin: 10px 0px 10px 10px;
-  padding: 5px;
-  border-radius: 999px;
-`;
-
-const StyledImage = styled.li`
-  width: 150px;
-  padding: 0;
-  margin: 0;
-`;
-
 const StyledCard = styled.div`
   ${({ theme }) => css`
     font-size: ${theme.fonts.fontSizeSmall};
@@ -161,4 +142,23 @@ const StyledName = styled.li`
   `};
   font-size: 2rem;
   font-weight: 800;
+`;
+
+const StyledImage = styled.li`
+  width: 150px;
+  padding: 0;
+  margin: 0;
+`;
+
+const StyledCloseButton = styled.button`
+  ${({ theme }) => css`
+    font-size: ${theme.fonts.fontSizeSmall};
+    background-color: ${theme.colors.button};
+    box-shadow: ${theme.boxShadow.shadowLight};
+  `};
+  border: 1px solid black;
+  width: 30px;
+  margin: 10px 0px 10px 10px;
+  padding: 5px;
+  border-radius: 999px;
 `;

@@ -1,8 +1,8 @@
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import { Title } from '../../components/Header';
-import styled, { css } from 'styled-components';
 import Toast from '../../components/Toasts';
 import EditForm from '../../components/EditForm';
-import { useRouter } from 'next/router';
 
 export default function AddCharacter() {
   const router = useRouter();
