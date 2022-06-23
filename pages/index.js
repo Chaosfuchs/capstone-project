@@ -35,6 +35,14 @@ const Main = styled.div`
   align-items: center;
 `;
 
+const HomeSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 10px;
+  width: 350px;
+`;
+
 const InfoContainer = styled.div`
   ${({ theme }) => css`
     box-shadow: ${theme.boxShadow.shadowHeavy};
@@ -43,12 +51,4 @@ const InfoContainer = styled.div`
   margin: 10px;
   padding: 0px 10px;
   border-radius: 10px;
-`;
-
-const HomeSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 10px;
-  width: 350px;
 `;
