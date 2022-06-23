@@ -33,6 +33,8 @@ You can create and manage your Roleplay Characters. You can see your Characters 
 
 ## `Test Version`
 
+***Short Note: Every User can see your Sheets at this moment!***
+
 [RPG Sheet Creator App](https://capstone-project-phi-six.vercel.app/)
 
 
