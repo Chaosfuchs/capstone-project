@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Title } from '../components/Header';
 import Navbar from '../components/Navbar';
 import Dice from '../components/Dices';
+import LoginButton from '../components/LoginButton';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         RPG Sheet-Creator
       </Title>
       <HomeSection>
+        <LoginButton></LoginButton>
         <InfoContainer>
           <h3>Welcome to RPG Sheet-Creator!</h3>
           <p>Create: Create your Character-Sheet.</p>
