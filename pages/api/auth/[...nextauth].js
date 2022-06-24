@@ -11,10 +11,10 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
 
-    GoogleProvider({
+    /* GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    }), */
 
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID,

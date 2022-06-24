@@ -1,13 +1,21 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
 import styled, { css } from 'styled-components';
+import { useRouter } from 'next/router';
 
 export default function LoginButton() {
+  const { push } = useRouter();
   const { data: session } = useSession();
+
   if (session) {
     return (
       <Container>
         <p>Signed in as {session.user.email} </p>
-        <StyledLoginButton onClick={() => signOut()}>
+        <StyledLoginButton
+          onClick={() => {
+            signOut();
+            push('/');
+          }}
+        >
           Sign out
         </StyledLoginButton>
       </Container>
@@ -16,7 +24,14 @@ export default function LoginButton() {
   return (
     <Container>
       <p>Not signed in</p>
-      <StyledLoginButton onClick={() => signIn()}>Sign in</StyledLoginButton>
+      <StyledLoginButton
+        onClick={() => {
+          signIn();
+          push('/home');
+        }}
+      >
+        Sign in
+      </StyledLoginButton>
     </Container>
   );
 }
@@ -26,15 +41,14 @@ const Container = styled.div`
     box-shadow: ${theme.boxShadow.shadowHeavy};
     background-image: ${theme.backgroundImage.paper};
   `};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
   margin: 10px;
-  padding: 0 30px 15px 30px;
+  padding: 10px 15px;
   border-radius: 10px;
   max-width: 300px;
-
-  p {
-    font-weight: 800;
-    letter-spacing: 2px;
-  }
 `;
 
 const StyledLoginButton = styled.button`
@@ -44,7 +58,8 @@ const StyledLoginButton = styled.button`
     background-color: ${theme.colors.button};
   `}
   border-radius: 10px;
-  width: 100px;
+  min-width: 80px;
+  height: 50px;
   margin: 0;
   padding: 5px;
 `;

@@ -8,8 +8,8 @@ export default function Navbar() {
   return (
     <>
       <StyledNavbar>
-        <Link passHref href="/">
-          <StyledLink isActive={router.pathname === '/'}>Home</StyledLink>
+        <Link passHref href="/home">
+          <StyledLink isActive={router.pathname === '/home'}>Home</StyledLink>
         </Link>
         <Link passHref href="/create-character">
           <StyledLink isActive={router.pathname === '/create-character'}>
