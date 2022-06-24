@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import DiscordProvider from 'next-auth/providers/discord';
+// import GoogleProvider from 'next-auth/providers/google';
+// import DiscordProvider from 'next-auth/providers/discord';
 
 export default NextAuth({
   // Configure one or more authentication providers / This is a Login
@@ -16,10 +16,10 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }), */
 
-    DiscordProvider({
+    /* DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    }),
+    }), */
     // ...add more providers here
   ],
 
