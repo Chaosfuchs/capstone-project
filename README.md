@@ -13,7 +13,7 @@ With RPG Sheet Creator you can flexibly create, manage and delete your character
 You can create and manage your Roleplay Characters. You can see your Characters all in one place and can. You can call it on one click, edit and delete your Characters. Also you can roll your selected dice on the homescreen for your next roleplay event!
 
 
-***IMPORTANT NOTE: currently still in progress!***
+***IMPORTANT NOTE: currently paused!***
 
 
 ## `Tech Stack`
